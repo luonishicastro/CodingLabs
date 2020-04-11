@@ -1,2 +1,2 @@
 # ListasPython
- Listas de exercícios treino de Python
+ Listas de exercícios treino de Python.
