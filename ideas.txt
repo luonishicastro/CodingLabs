@@ -1,0 +1,5 @@
+Python Development Ideas:
+
+I - Concepts: variable, display output, take user input, conditional, arithmetic operators, list, tuples, sets, dictionary; Project: calculator, hangman, dice roller
+II - Concepts: OPs, data structure, file handing, exception handling; Projects: file manager, alarm clock, binary search;
+III - Concepts: working with modules, python regex, lambda function, sqlite database, API, Collections; Project: URL shortner, chatbot, face Mask Detection;
