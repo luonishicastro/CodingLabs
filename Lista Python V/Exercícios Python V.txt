@@ -1,0 +1,504 @@
+Exercício 1 – Exec para HDFS
+Proposta: Ler continuamente um arquivo do File System e inserir o conteudo do HDFS
+1: Criar arquivo exec.properties no diretório /conf do flume
+2: Criar o arquivo /home/cloudera/teste.txt
+$vi /home/cloudera/teste.txt
+3: Iniciar o agent Flume
+cd /home/cloudera/apache-flume-1.7.0-bin
+bin/flume-ng agent --conf ./conf --conf-file ./conf/exec.properties --name aula
+-Dflume.root.logger=INFO,console
+4: Escreva no arquivo teste.txt e salve
+$vi /home/cloudera/teste.txt
+5: Verificar log do Flume e a criação do arquivo no HDFS
+
+Exercício 1 – exec.properties
+aula.sources = source1
+aula.channels = channel1
+aula.sinks = sink1
+aula.sources.source1.type = exec
+aula.sources.source1.command = tail -F /home/cloudera/teste.txt
+aula.sources.source1.channels = channel1
+aula.channels.channel1.type = memory
+aula.channels.channel1.capacity = 1000
+aula.channels.channel1.transactionCapacity = 100
+aula.sinks.sink1.channel=channel1
+aula.sinks.sink1.type=hdfs
+aula.sinks.sink1.hdfs.path=/aula/exec
+aula.sinks.sink1.hdfs.fileType=DataStream
+aula.sinks.sink1.hdfs.writeformat=Text
+aula.sinks.sink1.hdfs.batchSize=100
+aula.sinks.sink1.hdfs.rollSize=0
+aula.sinks.sink1.hdfs.rollCount=100
+aula.sinks.sink1.hdfs.rollInterval=100
+aula.sinks.sink1.hdfs.useLocalTimeStamp=true
+
+Exercício 2 – Spooldir para Kafka
+Proposta: Ler um arquivo do File System e inserir o conteudo em um tópico no Kafka e apagar o arquivo do diretório
+1: Criar arquivo spoolDir.properties no diretório /conf do flume
+2: Criar um arquivo csv com conteúdo no diretório /home/cloudera/files
+3: Iniciar o Kafka
+cd /home/cloudera/kafka_2.11-0.11.0.1
+nohup bin/kafka-server-^Cart.sh config/server.properties &
+4: Criar tópico no Kafka
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic msg
+5: Abrir um consumer no kafka
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic msg --from-beginning
+6: Iniciar o agent Flume
+cd /home/cloudera/apache-flume-1.7.0-bin
+bin/flume-ng agent --conf ./conf --conf-file ./conf/spoolDir.properties --name aula -Dflume.root.logger=INFO,console
+7: Verificar mensagens no consumer do Kafka
+
+
+Exercício 2 – spoolDir.properties
+aula.sources = source1
+aula.channels = channel1
+aula.sinks = sink1
+aula.sources.source1.type = spooldir
+aula.sources.source1.channels = channel1
+aula.sources.source1.spoolDir = /home/cloudera/files
+aula.sources.source1.fileHeader = false
+aula.sources.source1.deletePolicy = immediate
+aula.channels.channel1.type = memory
+aula.channels.channel1.capacity = 1000
+aula.channels.channel1.transactionCapacity = 100
+aula.sinks.sink1.channel = channel1
+aula.sinks.sink1.type = org.apache.flume.sink.kafka.KafkaSink
+aula.sinks.sink1.kafka.topic = msg
+aula.sinks.sink1.kafka.bootstrap.servers = localhost:9092
+aula.sinks.sink1.kafka.flumeBatchSize = 20
+aula.sinks.sink1.kafka.producer.acks = 1
+aula.sinks.sink1.kafka.producer.linger.ms = 1
+aula.sinks.sink1.kafka.producer.compression.type = snappy
+
+--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
+Instalando o Kafka
+
+Pode ser instalado em qualquer servidor (linux ou windows).
+Download:
+https://archive.apache.org/dist/kafka/0.10.2.1/kafka_2.10-0.10.2.1.tgz
+Após o download, descompactar o arquivo:
+tar -xzf kafka_2.10-0.10.2.1.tgz
+Acessar o diretorio:
+cd kafka_2.10-0.10.2.1
+
+Caso ainda não exista um Zookeeper instalado, iniciar pelo comando abaixo:
+bin/zookeeper-server-start.sh config/zookeeper.properties
+Iniciar o Kafka:
+nohup bin/kafka-server-start.sh config/server.properties &
+Analisando o start:
+more nohup.out
+Verificando o processo:
+ps -ef | grep kafka
+
+Criando tópico
+Para criação de tópico é utilizado o script kafka-topics
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1
+--partitions 1 --topic msg
+Onde:
+--zookeeper é o conjunto de zookeeper
+--replication-factor é o número de réplica para o tópico
+--partitions é o número de partições desejado para aquele tópico
+--topic é o nome do tópico a ser criado
+Ao criar um tópico é exibido a mensagem:
+Created topic "msg".
+
+Verificando tópicos
+Para listar os tópicos existentes:
+bin/kafka-topics.sh --list --zookeeper localhost:2181
+Para verificar as configurações do tópico:
+bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic msg
+
+Criando Producer
+Por padrão, a porta utilizada pelo Kafka Broker é a 9092, podendo ser alterada no
+arquivo de configuração.
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic msg
+Após a abertura do producer, basta digitar as mensagens.
+Várias aplicações possuem clients para o Kafka, como por exemplo Java, Python
+e C#.
+
+Criando Consumer
+Para iniciar um consumer é utilizado o script kafka-console-consumer.sh
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic msg
+Ao iniciar o consumer, todas as mensagens a partir daquele momento serão
+recebidas no console.
+Para receber as mensagens desde o inicio do tópico, o parâmetro
+--from-beginning é utilizado.
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic msg
+--from-beginning
+
+Kafka Tools
+Download em:
+http://www.kafkatool.com/download.html
+Permite visualização gráfica dos Brokers, Producers, Consumers, Partitions e
+Mensagens.
+wget http://www.kafkatool.com/download/kafkatool.sh
+
+--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
+Comandos Beeline
+
+beeline -u "jdbc:hive2://quickstart.cloudera:10000/default"
+beeline -help
+
+--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
+Comandos Hive
+
+Hive
+dfs -ls /;
+
+(Comandos Linux)
+!ifconfig;
+!hostname
+
+(Executando comando a partir do Linux)
+hive -e "show databases;"
+ls /tmp/arquivo.txt
+cat /tmp/arquivo.txt
+hive -f/home/query.sql
+
+(Criar Banco de Dados)
+create database if not exists [nome] location ‘path on hdfs’
+
+(Visualizar banco de dados)
+show databases
+
+(Definição do banco de dados)
+describe database [nome]
+
+(Excluir banco de dados)
+drop database [nome]
+
+(Alterar banco de dados)
+alter database [nome] [parametros]
+
+(Cria Tabela Gerenciada)
+create table aula_tabger (id int)
+
+(Cria Tabela Externa)
+create external table aula_tabext
+(id int)
+row format delimited fields terminated by ‘,’
+location ‘/app/hive/tabext’
+
+(Criando Tabelas Particionadas)
+create external table tabelaparticionada
+(nome string)
+paritioned by (ano int)
+row format delimited
+fields terminated by ';'
+lines terminated by '\n'
+stored as textfile;
+
+(Buckets)
+CREATE TABLE user_info_bucketed(user_id BIGINT, firstname STRIG, lastname STRING)
+COMMENT 'A bucketed copy of usr_info'
+PARTITIONED BY(ds STRING)
+CLUSTERED BY(user_id) INTO 256 BUCKETS;
+
+(HBase)
+CREATE TABLE hbase_table_1(key int, value string)
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES("hbase.columns.mapping" = ":key,cf1:val")
+TBLPROPERTIES ("hbase.table.name" = "xyz", "hbase.mapred.output.outputtable" = "xyz")
+
+--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
+Comandos Impala
+
+impala-shell
+invalidate metadata
+refresh
+
+--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
+Comandos HBase
+
+hbase shell
+hbase hbck
+hbase hbck -details
+hbase hbck -help
+status
+whoami
+version
+list
+list 'nome*'
+describe 'table'
+exists 'table'
+is_enabled 'table'
+is_disabled 'table'
+show_filters
+
+(Cria novas tabelas)
+create 'table','cf1'
+create 'table',{NAME=>'cf1', VERSIONS=>5}
+create 'table',{NAME=>'cf1'},{NAME=>'cf2'},{NAME=>'cf3'}
+create 'table',{NAME=>'cf1', VERSIONS=>1, TTL=>2592000}
+
+(Altera tabelas e column family)
+alter 'table',{NAME=>'c1', VERSIONS=>1}
+alter 'table','delete'=>'fam1'
+
+(Desabilita Tabela)
+disable 'table'
+disable_all 'tab*'
+
+(Exclui Tabela)
+drop 'table'
+drop_all 'tab*'
+
+(Habilita novamente)
+enable 'table'
+enable_all 'tab*'
+
+(Inserindo dados)
+put 'table','row1','cf1:c1','value1'
+
+(Inserir dados incrementando células)
+create 'testeincr','cf1'
+incr 'testeincr','cf','cf:c'
+incr 'testeincr','cd','cf:c',10
+
+(Exclui célula de determinada linha)
+delete 'table','row1','cf1:name'
+
+(Exclui linhas de determinada coluna)
+deleteall 'table','row1'
+deleteall 'table','row1','cf1:name'
+
+(Exclui todos os registros de determinada tabela)
+truncate 'table'
+
+(Retorna numero de linhas da tabela)
+count 'table'
+
+(Obtém o conteúdo da linha ou uma célula)
+get 'table', 'row1'
+get 'table', 'row1', {COLUMN => 'c1'}
+get 'table', 'row1', {COLUMN => 'c1', VERSIONS => 4}
+
+(Consulta que varre um range ou toda a tabela)
+scan 'table'
+scan 'table', {LIMIT =>10, STARTROW => 'a', ENDROW => 'b'}
+scan 'table', {COLUMNS => ['c1', 'c2'], LIMIT => 10, STARTROW => 'xyz'}
+scan 'table', {FILTER => org.apache.hadoop.hbase.filter.ColumnPaginationFilter.new(1, 0)}
+
+--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
+Comandos Hadoop
+
+hadoop fs <comando>
+
+-Criar um diretório no HDFS:
+	hadoop fs -mkdir /user/cloudera/aula
+
+-Listar o conteúdo do diretório do HDFS
+	hadoop fs -ls /user/cloudera
+
+-Inserir arquivo no HDFS a partir do FileSystem
+	hadoop fs -put hadoop.txt /user/cloudera/aula
+
+-Visualizar conteúdo do arquivo no HDFS
+	hadoop fs -cat /user/cloudera/aula/hadoop.txt
+	hadoop fs -tail /user/cloudera/hadoop.txt
+
+-Mover arquivo dentro do HDFS
+	hadoop fs -mv /user/cloudera/aula/hadoop.txt/user/cloudera
+
+-Copiar arquivo dentro do HDFS
+	hadoop fs -cp /user/cloudera/hadoop.txt/user/cloudera/aula
+
+-Remover arquivo do HDFS
+	hadoop fs -rm /user/cloudera/aula/hadoop.yxy
+
+-Copiar arquivo do HDFS para o FileSystem
+	hadoop fs -get /user/cloudera/hadoop.txt/tmp/
+--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
+Comandos HDFS
+
+appendToFile			deleteSnapshot			ls				setfacl
+cat				df				lsr				setfattr
+checksum			du				mkdir				setrep
+chgrp				dus				moveFromLocal			stat
+chmod				expunge				moveToLocal			tail
+chown				find				mv				test
+copyFromLocal			get				put				text
+copyToLocal			getfacl				renameSnapshot			touchz
+count				getfattr			rm				truncate
+cp				getmerge			rmdir				usage
+createSnapshot			help				rmr
+--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
+Download Flume
+Instalar na vm:
+wget http://archive.apache.org/dist/flume/1.7.0/apache-flume-1.7.0-bin.tar.gz
+tar -xzf apache-flume-1.7.0-bin.tar.gz
+cd apache-flume-1.7.0-bin
+
+
+Configurando Flume
+<Agent>.sources = <Source>
+<Agent>.sinks = <Sink>
+<Agent>.channels = <Channel1>
+<Agent>.sources.<Source>.<someProperty> = <someValue>
+<Agent>.sources.<Source>.channels = <Channel1>
+<Agent>.channel.<Channel>.<someProperty> = <someValue>
+<Agent>.sources.<Sink>.<someProperty> = <someValue>
+<Agent>.sinks.<Sink>.channel = <Channel1>
+
+Exemplo: Configurando agent Flume
+aula.sources = source1
+aula.channels = channel1
+aula.sinks = sink1
+aula.sources.source1.type = netcat
+aula.sources.source1.bind = localhost
+aula.sources.source1.port = 44444
+aula.sources.source1.channels = channel1
+aula.channels.channel1.type = memory
+aula.channels.channel1.capacity = 1000
+aula.channels.channel1.transactionCapacity = 100
+aula.sinks.sink1.type = logger
+aula.sinks.sink1.channel = channel1
+
+Exemplo: Iniciando um agent Flume
+bin/flume-ng agent --conf ./conf --conf-file ./conf/aula.properties --name aula
+-Dflume.root.logger=INFO,console
+Em segundo plano:
+nohup bin/flume-ng agent --conf ./conf --conf-file ./conf/aula.properties --name
+aula &
+Em Modo DEBUG:
+bin/flume-ng agent --conf ./conf --conf-file ./conf/aula.properties --name aula
+-Dflume.root.logger=DEBUG,console
+
+Exemplo: Teste
+Em um novo terminal, criar uma conexão telnet e digitar mensagens:
+Para abrir conexão telnet:
+telnet localhost 44444
+As mensagens serão impressas no log do Flume
+
+
+--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
+Instalação NIFI
+• Java 8
+sudo yum install java-1.8.0-openjdk.x86_64
+• Download Nifi
+https://www-us.apache.org/dist/nifi/1.9.2/nifi-1.9.2-bin.tar.gz
+• Iniciar Nifi
+tar -xzf nifi-1.9.2-bin.tar.gz
+cd nifi-1.9.2/bin/
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.212.b04-0.el6_10.x86_64/jre
+sh nifi.sh start
+
+
+--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
+Import Sqoop
+
+sqoop import \
+--connect jdbc:mysql://localhost/db \
+--username root \
+--table aula --m 1
+
+Export
+
+sqoop export \
+--connect jdbc:mysql://localhost/db \
+--username root \
+--table aula \
+--export-dir /aula/data
+
+sqoop COMMAND [ARGS]
+
+Acessando MySql
+Em um terminal, acesse o mysql pelo comando:
+mysql -uroot -pcloudera
+Listar databases:
+show databases;
+Listar tabelas de um database:
+show tables from retail_db;
+
+Importando uma tabela para o HDFS
+sqoop import \
+--table categories \
+--connect jdbc:mysql://localhost/retail_db \
+--username root \
+--password cloudera \
+--warehouse-dir /aula/data/ \
+--m 1 \
+--delete-target-dir \
+
+Importando todas as tabela para o HDFS
+sqoop import-all-tables \
+--connect jdbc:mysql://localhost/retail_db \
+--username root \
+--password cloudera \
+--warehouse-dir /aula/data/ \
+--m 1
+--delete-target-dir \
+
+Importando tabela incremental para o HDFS
+sqoop import \
+--table categories \
+--connect jdbc:mysql://localhost/retail_db \
+--username root \
+--password cloudera \
+--warehouse-dir /aula/data/ \
+--m 1 \
+--incremental append \
+--check-column category_id \
+--last-value 58
+
+Importando tabela para o Hive
+sqoop import \
+--table categories \
+--connect jdbc:mysql://localhost/retail_db \
+--username root \
+--password cloudera \
+--warehouse-dir /aula/hive/ \
+--m 1 \
+--hive-import \
+--hive-table aula.categories \
+--hive-delims-replacement "SPECIAL"
+
+Exportando dados para o HDFS
+Criar tabela no mysql
+CREATE TABLE aula
+(
+category_id int,
+category_department_id int,
+category_name varchar(45)
+)
+sqoop export \
+--connect jdbc:mysql://localhost/retail_db \
+--username root \
+--password cloudera \
+--table aula \
+--export-dir /aula/data/categories
+
+Criando Job
+sqoop job --create job_categories_daily \
+-- import \
+--table categories \
+--connect jdbc:mysql://localhost/retail_db \
+--username root \
+--password cloudera \
+--warehouse-dir /aula/data/ \
+--m 1 \
+--delete-target-dir
+
+Sqoop Jobs
+Para listar os jobs:
+sqoop job --list
+Para vizualizar a configuração do job:
+sqoop job --show job_categories_daily
+Para executar o job:
+sqoop job --exec job_categories_daily
+
+--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
+Spark
+
+$spark-shell
+$pyspark
+
+$spark-submit --option value application jar | python file [application arguments]
+
+spark-submit Yarn options
+• --executor-cores: Número de núcleos de processador para alocar em cada executor
+• --executor-memory: O tamanho máximo de memória para alocar a cada executor
+• --num-executors: O número total de containers YARN a serem alocados
+• --name: Nome do aplicativo
+• --jars: Jars adicionais a aplicação como bibliotecas externas
+

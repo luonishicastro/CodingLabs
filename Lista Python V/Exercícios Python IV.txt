@@ -1,0 +1,314 @@
+#540 Create a program that asks the user to enter their name and their age. Print out a message addressed to them that tells them the year that they will turn 100 years old.
+
+import datetime
+
+nome = input('Digite o seu nome: ')
+idade = int(input('Digite a sua idade: '))
+ano = datetime.datetime.now().year
+
+tempo = 100 - idade
+
+print('{}, você tem {} anos de idade. Em {} você terá 100 anos.'.format(nome, idade, ano+tempo))
+
+#541 Take a list, say for example this one: a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+#and write a program that prints out all the elements of the list that are less than 5.
+
+a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+
+for i in a:
+    if i < 5:
+        print(i)
+
+#542 Create a program that asks the user for a number and then prints out a list of all the divisors of that number. (If you don’t know what a divisor is, it is a number that divides evenly into another number. For example, 13 is a divisor of 26 because 26 / 13 has no remainder.)
+
+num = int(input('Digite um número qualquer: '))
+divisores = list()
+
+for i in range(num-1, 0, -1):
+    if num%i==0:
+        divisores.append(i)
+
+print('São divisores de {} os números da lista: {}'.format(num, divisores))
+
+#543 Take two lists, say for example these two:
+# a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+# b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+# and write a program that returns a list that contains only the elements that are common between the lists (without duplicates). Make sure your program works on two lists of different sizes.
+
+a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+c = []
+
+for i in a:
+    if i in b:
+        c.append(i)
+
+print('Os elementos comuns a ambas as listas são: {}'.format(list(dict.fromkeys(c))))
+
+#544 Let’s say I give you a list saved in a variable: a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]. Write one line of Python that takes this list a and makes a new list that has only the even elements of this list in it.
+
+a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+print(list(filter(lambda numero : numero%2!=0, a)))
+
+#545 Write a program that takes a list of numbers (for example, a = [5, 10, 15, 20, 25]) and makes a new list of only the first and last elements of the given list. For practice, write this code inside a function.
+
+def funcListaNumeros(lista):
+    novaLista = list()
+    novaLista.append(lista[0])
+    novaLista.append(lista[len(lista)-1])
+    return novaLista
+
+a = [5, 10, 15, 20, 25]
+
+print(funcListaNumeros(a))
+
+#546 Write a program (using functions!) that asks the user for a long string containing multiple words. Print back to the user the same string, except with the words in backwards order.
+
+def funcRetornaInverso(frase):
+    fraseSplitada = frase.split()
+    fraseInteira = []
+    for i in range(len(fraseSplitada)-1,-1,-1):
+        fraseInteira.append(fraseSplitada[i])
+    return fraseInteira
+
+a = input('Digite uma frase qualquer: ')
+print(funcRetornaInverso(a))
+
+#547 Write a password generator in Python. Be creative with how you generate passwords - strong passwords have a mix of lowercase letters, uppercase letters, numbers, and symbols. The passwords should be random, generating a new password every time the user asks for a new password. Include your run-time code in a main method.
+
+#548 - Imprima na tela os números de 1 a 10. Use uma lista para armazenar os números.
+numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(numeros[0])
+print(numeros[1])
+print(numeros[2])
+print(numeros[3])
+print(numeros[4])
+print(numeros[5])
+print(numeros[6])
+print(numeros[7])
+print(numeros[8])
+print(numeros[9])
+
+#549 - Crie uma lista de 5 objetos e imprima na tela
+
+listacomcincoobjetos = list()
+listacomcincoobjetos.append(1)
+listacomcincoobjetos.append('abaduba')
+listacomcincoobjetos.append(True)
+listacomcincoobjetos.append(1.234)
+listacomcincoobjetos.append(['um', 'dois', 'tres'])
+
+print(listacomcincoobjetos)
+print(type(listacomcincoobjetos))
+
+#550 - Crie duas strings e concatene as duas em uma terceira string
+
+string1 = 'Essa é a primeira string, '
+string2 = 'e esta é a segunda string.'
+
+string3 = string1 + string2
+print(string1)
+print(string2)
+print(string3)
+
+#551 - Crie uma tupla com os seguintes elementos: 1, 2, 2, 3, 4, 4, 4, 5 e depois utilize a função count do
+# objeto tupla para verificar quantas vezes o número 4 aparece na tupla
+
+tupladessejeitoai = (1, 2, 2, 3, 4, 4, 4, 5)
+print(tupladessejeitoai.count(4))
+
+#552 - Crie um dicionário vazio e imprima na tela
+
+dicionariovazio = dict()
+print(dicionariovazio)
+
+#553 - Crie um dicionário com 3 chaves e 3 valores e imprima na tela
+
+dicionario = {'Lucas': 26, 'Bia': 30, 'Fabinho': 34}
+print(dicionario)
+
+#554 - Adicione mais um elemento ao dicionário criado no exercício anterior e imprima na tela
+
+dicionario = {'Lucas': 26, 'Bia': 30, 'Fabinho': 34}
+print(dicionario)
+if 'William' not in dicionario.keys():
+    dicionario['William'] = 25
+print(dicionario)
+
+#555 - Crie um dicionário com 3 chaves e 3 valores. Um dos valores deve ser uma lista de 2 elementos numéricos.
+# Imprima o dicionário na tela.
+
+maisUmdicionario = {'valor1': 1, 'valor2': [1, 2], 'valor3': 3}
+print(maisUmdicionario)
+
+#556 - Crie uma lista de 4 elementos. O primeiro elemento deve ser uma string,
+# o segundo uma tupla de 2 elementos, o terceiro um dcionário com 2 chaves e 2 valores e
+# o quarto elemento um valor do tipo float.
+# Imprima a lista na tela.
+
+putaKaraChato = {'string': 'abaduba', 'tupla': (1, 2), 'dicionario': {'chave1': 'Um', 'chave2': 'Dois'}, 'numero': 1.07}
+print(putaKaraChato)
+
+#557 - Considere a string abaixo. Imprima na tela apenas os caracteres da posição 1 a 18.
+# frase = 'Cientista de Dados é o profissional mais sexy do século XXI'
+
+frase = 'Cientista de Dados é o profissional mais sexy do século XXI'
+print(frase[1:19])
+
+#558 - Crie uma estrutura que pergunte ao usuário qual o dia da semana. Se o dia for igual a Domingo ou igual a sábado, imprima na tela "Hoje é dia de descanso", caso contrário imprima na tela "Você precisa trabalhar!"
+
+dia = input('Qual é o dia da semana? ').upper()
+if dia == 'SÁBADO' or dia == 'SABADO' or dia == 'DOMINGO':
+    print('Hoje é dia de descanso.')
+else:
+    print('Você precisa trabalhar!')
+
+#559 - Crie uma lista de 5 frutas e verifique se a fruta 'Morango' faz parte da lista
+
+fruteira = ['Banana', 'Morango', 'Uva', 'Mamão', 'Abacaxi']
+if 'Morango' in fruteira:
+    print('Sua fruteira tem Morango!')
+else:
+    print('Sua fruteira não têm Morango!')
+
+#560 - Crie uma tupla de 4 elementos, multiplique cada elemento da tupla por 2 e guarde os resultados em uma lista
+
+elementos = (1, 3, 5, 7)
+novosElementos = []
+
+for i in elementos:
+    novosElementos.append(i*2)
+
+print(elementos)
+print(novosElementos)
+
+#561 - Crie uma sequência de números pares entre 100 e 150 e imprima na tela
+
+for i in range(100, 151):
+    if i%2==0:
+        print(i)
+
+#562 - Crie uma variável chamada temperatura e atribua o valor 40. Enquanto temperatura for maior que 35, imprima as temperaturas na tela
+
+temperatura = 40
+
+while temperatura>35:
+    print('Temperatura: {} celsius'.format(temperatura))
+    temperatura=temperatura-1
+
+#563 - Crie uma variável chamada contador = 0. Enquanto counter for menor que 100, imprima os valores na tela, mas quando for encontrado o valor 23, interrompa a execução do programa
+
+contador = 0
+
+while contador<100:
+    print(contador)
+    contador+=1
+    if contador==23:
+        break
+
+#564 - Crie uma lista vazia e uma variável com valor 4. Enquanto o valor da variável for menor ou igual a 20, adicione à lista, apenas os valores pares e imprima a lista
+
+lista = []
+a = 4
+
+while a<=20:
+    if a%2==0:
+        lista.append(a)
+    a+=1
+print(lista)
+
+#565 - Transforme o resultado desta função range em uma lista: range(5, 45, 2) nums = range(5, 45, 2)
+
+lista = []
+for i in range(5, 45, 2):
+    lista.append(i)
+
+print(lista)
+
+#566 - Faça a correção dos erros no código abaixo e execute o programa. Dica: são 3 erros.
+temperatura = float(input('Qual a temperatura? '))
+if temperatura > 30
+print('Vista roupas leves.')
+else
+    print('Busque seus casacos.')
+
+temperatura = float(input('Qual a temperatura? '))
+if temperatura > 30:
+    print('Vista roupas leves.')
+else:
+    print('Busque seus casacos.')
+
+#567 - Faça um programa que conte quantas vezes a letra "r" aparece na frase abaixo. Use um placeholder na sua instrução de impressão
+ “É melhor, muito melhor, contentar-se com a realidade; se ela não é tão brilhante como os sonhos, tem pelo menos a 
+# vantagem de existir.” (Machado de Assis)
+frase = "É melhor, muito melhor, contentar-se com a realidade; se ela não é tão brilhante como os sonhos, tem pelo menos a vantagem de existir."
+
+frase = "É melhor, muito melhor, contentar-se com a realidade; se ela não é tão brilhante como os sonhos, tem pelo menos a vantagem de existir.".upper()
+quantidade = frase.count('R')
+
+print('A palavra r aparece {} vezes.'.format(quantidade))
+
+#568 - Crie uma função que imprima a sequência de números pares entre 1 e 20 (a função não recebe parâmetro) e depois faça uma chamada à função para listar os números
+
+def NumerosPares():
+    for i in range(1, 21):
+        if i%2==0:
+            print(i)
+
+print(NumerosPares())
+
+#569 - Crie uma função que receba uma string como argumento e retorne a mesma string em letras maiúsculas. Faça uma chamada à função, passando como parâmetro uma string
+
+def RetornaMaiusculas(umaString):
+    return umaString.upper()
+
+frase = input('Digite uma frase qualquer: ')
+print(RetornaMaiusculas(frase))
+
+#570 - Crie uma função que receba como parâmetro uma lista de 4 elementos, adicione 2 elementos a lista e imprima a lista
+
+def ListadeQuatro(UmaLista):
+    UmaLista.append(1)
+    UmaLista.append(2)
+    return UmaLista
+
+lista = [3, 4, 5, 6]
+print(ListadeQuatro(lista))
+
+#571 - Crie uma função que receba um argumento formal e uma possível lista de elementos. Faça duas chamadas à função, com apenas 1 elemento e na segunda chamada com 4 elementos
+
+#572 - Crie uma função anônima e atribua seu retorno a uma variável chamada soma. A expressão vai receber 2 números como parâmetro e retornar a soma deles
+
+#573 - Execute o código abaixo e certifique-se que compreende a diferença entre variável global e local
+total = 0
+def soma( arg1, arg2 ):
+    total = arg1 + arg2; 
+    print ("Dentro da função o total é: ", total)
+    return total;
+soma( 10, 20 );
+print ("Fora da função o total é: ", total)
+
+#574 - Abaixo você encontra uma lista com temperaturas em graus Celsius. Crie uma função anônima que converta cada temperatura para Fahrenheit
+# Dica: para conseguir realizar este exercício, você deve criar sua função lambda, dentro de uma função (que será estudada no próximo capítulo). Isso permite aplicar sua função a cada elemento da lista
+# Como descobrir a fórmula matemática que converte de Celsius para Fahrenheit? Pesquise!!!
+Celsius = [39.2, 36.5, 37.3, 37.8]
+Fahrenheit = map(coloque_aqui_sua_função_lambda)
+print (list(Fahrenheit))
+
+#575 - Crie um dicionário e liste todos os métodos e atributos do dicionário
+
+#576 - Abaixo você encontra a importação do Pandas, um dos principais pacotes Python para análise de dados.
+# Analise atentamente todos os métodos disponíveis. Um deles você vai usar no próximo exercício.
+import pandas as pd
+dir(pd)
+
+#577 - Crie uma função que receba o arquivo abaixo como argumento e retorne um resumo estatístico descritivo do arquivo. Dica, use Pandas e um de seus métodos, describe()
+# Arquivo: "binary.csv"
+import pandas as pd
+file_name = "binary.csv"
+
+--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
+Desafios: 547
+
+https://www.practicepython.org/
+https://www.w3resource.com/python-exercises/
