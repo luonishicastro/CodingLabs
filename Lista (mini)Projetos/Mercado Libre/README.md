@@ -12,4 +12,15 @@ Um usuário no site do Mercado Livre para comprar dois celulares idênticos. Rea
 ### Objetivo
 Com base no caso de uso descrito acima, criar uma DER que responda ao modelo de Negócio. Em paralelo, resolver os desafios utilizando a linguagem SQL.
 
+### Para resolver
+1. Listar os usuários que fazem aniversário no dia de hoje e que a quantidade de vendas realizadas em Janeiro/2020 sejam superiores a 1500;
+2. Para cada mês de 2020, solicitamos que seja exibido um top 5 dos usuários que mais venderam ($) na categoria Celulares. Solicitamos o mês e ano da análise, nome e sobrenome do vendedor, quantidade de vendas realizadas, quantidade de produtos vendidos e o total vendido;
+3. Solicitamos popular uma nova tabela com o preço e estado dos itens no final do dia. Considerar que esse processo deve permmitit um reprocesso. Vale ressaltar que na tabela de item, vamos ter unicamente o último estado informado pela PK definida (esse item pode ser resolvido através de uma stores procedure).
+
+### Backlog de Tarefas
+A partir da situação definida, solicitamos:
+* Desenhar um DER do modelo de dados que possa responder cada uma das perguntas feitas anteriormente;
+* Gerar um script DDL para a criação de cada uma das tabelas representadas no DER. Enviar o arquivo com o nome: "create_tables.sql"
+* Gerar o código SQL para responder cada uma das situações mencionadas anteriormente sobre o modelo desenhado. Nome do arquivo: "respostas_negocio.sql"
+
 # Segunda Parte - APIs
