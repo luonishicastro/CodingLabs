@@ -1,9 +1,2 @@
-# ListasPython
-O repositório listas-prog se refere à listas de exercícios de programação em diversas linguagens de alto nível, bem como linguagem de consulta estruturada. Estes exercícios se aplicam tanto ao treino diário para melhorar a proficiência em programação quanto em aplicações reais e úteis que podem ser usadas como funções ou serviços.
-
-Classificação e descrição dos sub-repositórios:
-* Lista (mini)Projetos
-* Lista Kaggle
-* Listas Python
-* Lista SQL
-* databases
+# Inteligência Artificial Aplicada a Finanças - Data Science Academy
+Os códigos aqui listados são fortemente baseados no curso de Inteligência Artificial Aplicada a Finanças da Data Science Academy. Porém com edição, comentários e alguns códigos que acrescentei.
