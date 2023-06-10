@@ -15,7 +15,7 @@ Um usuário no site do Mercado Livre para comprar dois celulares idênticos. Rea
 ### Para resolver
 1. Listar os usuários que fazem aniversário no dia de hoje e que a quantidade de vendas realizadas em Janeiro/2020 sejam superiores a 1500;
 2. Para cada mês de 2020, solicitamos que seja exibido um top 5 dos usuários que mais venderam ($) na categoria Celulares. Solicitamos o mês e ano da análise, nome e sobrenome do vendedor, quantidade de vendas realizadas, quantidade de produtos vendidos e o total vendido;
-3. Solicitamos popular uma nova tabela com o preço e estado dos itens no final do dia. Considerar que esse processo deve permitir um reprocesso. Vale ressaltar que na tabela de item, vamos ter unicamente o último estado informado pela PK definida (esse item pode ser resolvido através de uma stores procedure).
+3. Solicitamos popular uma nova tabela com o preço e estado dos itens no final do dia. Considerar que esse processo deve permitir um reprocesso. Vale ressaltar que na tabela de item, vamos ter unicamente o último estado informado pela PK definida (esse item pode ser resolvido através de uma stored procedure).
 
 ### Backlog de Tarefas
 A partir da situação definida, solicitamos:
