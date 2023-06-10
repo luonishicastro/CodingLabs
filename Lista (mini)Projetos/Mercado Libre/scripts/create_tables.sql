@@ -30,6 +30,9 @@ SET @sql = N'USE ' + QUOTENAME(@dbname)
 EXEC sp_executesql @sql
 GO
 
+
+-- criar tabela temporária como ## para não precisar declarar duas vezes a variavel
+
 --=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
 -- Criação Tabelas Fato
 --=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
@@ -38,7 +41,7 @@ DROP TABLE IF EXISTS [dbo].FACT_ITEM;
 CREATE TABLE [dbo].FACT_ITEM (
 	[ITEM_ID] INT IDENTITY NOT NULL
 	, [ITEM_NAME] VARCHAR(150) NOT NULL
-	, [ITEM_STATE] AS IIF(ISNULL([END_DATE], '') = '', 'A', 'I')
+	, [ITEM_STATE] AS IIF(ISNULL([END_DATE], '') = '', 'Active', 'Inactive')
 	, [END_DATE] DATETIME NULL
 	, [CATEGORY_ID] INT NOT NULL
 	, [ITEM_PRICE] NUMERIC(8,2) NOT NULL
@@ -51,6 +54,7 @@ CREATE TABLE [dbo].[FACT_ORDER] (
 	[ORDER_ID] INT IDENTITY NOT NULL
 	, [ITEM_ID] INT NOT NULL
 	, [CUSTOMER_ID] INT NOT NULL
+	, [QUANTITY] INT NOT NULL
 );
 
 --=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
@@ -88,7 +92,61 @@ CREATE TABLE [dbo].DIM_CUSTOMER (
 /*  */
 TRUNCATE TABLE [dbo].DIM_CUSTOMER;
 INSERT INTO [dbo].DIM_CUSTOMER VALUES
-	('Lucas', 'Castro', 'M', 'Av. Sumaré', '03/07/1994')
+	('Lucas', 'Castro', 'M', 'Buyer', 'Av. Sumaré', '03/07/1994')
+
+/*
+CREATE TABLE #FakeCustomers (
+    CustomerID INT,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100),
+    Address VARCHAR(100)
+);
+
+DECLARE @FirstNames TABLE (FirstName VARCHAR(50));
+DECLARE @Surnames TABLE (Surname VARCHAR(50));
+
+INSERT INTO @FirstNames (FirstName)
+VALUES
+    ('John'),
+    ('Jane'),
+    ('David'),
+    ('Sarah'),
+    ('Michael'),
+    -- Add more first names as needed
+    ('Emily');
+
+INSERT INTO @Surnames (Surname)
+VALUES
+    ('Smith'),
+    ('Johnson'),
+    ('Brown'),
+    ('Taylor'),
+    ('Miller'),
+    ('Wilson'),
+    -- Add more surnames as needed
+    ('Doe');
+
+
+INSERT INTO #FakeCustomers (CustomerID, FirstName, LastName, Email, Address)
+SELECT
+    ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS CustomerID,
+    FirstName,
+    Surname,
+    'email' + CAST(ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS VARCHAR(10)) + '@example.com' AS Email,
+    'Address' + CAST(ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS VARCHAR(10)) AS Address
+FROM
+    @FirstNames
+CROSS JOIN
+    @Surnames
+CROSS JOIN
+    sys.columns;
+
+
+SELECT * FROM #FakeCustomers;
+
+DROP TABLE #FakeCustomers;
+*/
 
 
 /*  */
@@ -100,7 +158,7 @@ INSERT INTO [dbo].FACT_ITEM VALUES
 /*  */
 TRUNCATE TABLE [dbo].[FACT_ORDER];
 INSERT INTO [dbo].[FACT_ORDER] VALUES
-	(3, 1)
+	(3, 1, 1)
 
 
 /*  */
