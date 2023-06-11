@@ -66,6 +66,7 @@ CREATE TABLE [dbo].[FACT_ORDER] (
 
 /* Tabela Category - entidade com a descrição de cada categoria. */
 DROP TABLE IF EXISTS [dbo].DIM_CATEGORY;
+
 CREATE TABLE [dbo].DIM_CATEGORY (
 	[CATEGORY_ID] INT IDENTITY NOT NULL
 	, [CATEGORY_DESCRIPTION] VARCHAR(150) NOT NULL
@@ -79,7 +80,7 @@ CREATE TABLE [dbo].DIM_CUSTOMER (
 	[CUSTOMER_ID] INT IDENTITY NOT NULL
 	, [CUSTOMER_NAME] VARCHAR(150) NOT NULL
 	, [CUSTOMER_SURNAME] VARCHAR(150) NOT NULL
-	, [CUSTOMER_SEX] CHAR NOT NULL
+	, [CUSTOMER_GENDER] CHAR NULL
 	, [CUSTOMER_TYPE] VARCHAR(15) NOT NULL
 	, [CUSTOMER_ADDRESS] VARCHAR(150) NOT NULL
 	, [CUSTOMER_BIRTHDAY] DATE NOT NULL
@@ -89,64 +90,53 @@ CREATE TABLE [dbo].DIM_CUSTOMER (
 -- Dados Teste
 --=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
 
-/*  */
+/* Inserção de Dados fictícios na tabela de Clientes */
 TRUNCATE TABLE [dbo].DIM_CUSTOMER;
-INSERT INTO [dbo].DIM_CUSTOMER VALUES
-	('Lucas', 'Castro', 'M', 'Buyer', 'Av. Sumaré', '03/07/1994')
 
-/*
+DROP TABLE IF EXISTS #FakeCustomers;
 CREATE TABLE #FakeCustomers (
-    CustomerID INT,
-    FirstName VARCHAR(50),
-    LastName VARCHAR(50),
-    Email VARCHAR(100),
-    Address VARCHAR(100)
+    CustomerID INT
+	, FirstName VARCHAR(50)
+	, LastName VARCHAR(50)
+	, Email VARCHAR(100)
+	, Address VARCHAR(100)
 );
 
 DECLARE @FirstNames TABLE (FirstName VARCHAR(50));
 DECLARE @Surnames TABLE (Surname VARCHAR(50));
 
 INSERT INTO @FirstNames (FirstName)
-VALUES
-    ('John'),
-    ('Jane'),
-    ('David'),
-    ('Sarah'),
-    ('Michael'),
-    -- Add more first names as needed
-    ('Emily');
+VALUES ('Lucía'), ('Dolores'), ('Sara'), ('Cristina'), ('Ana'), ('Laura'), ('Isabel'), ('Josefa'), ('Maria'), ('Maria Carmen'), ('José Luís'), ('Daniel'), ('José António'), ('Javier'), ('Juan'), ('David'), ('Francisco'), ('José'), ('Manuel'), ('António');
 
 INSERT INTO @Surnames (Surname)
-VALUES
-    ('Smith'),
-    ('Johnson'),
-    ('Brown'),
-    ('Taylor'),
-    ('Miller'),
-    ('Wilson'),
-    -- Add more surnames as needed
-    ('Doe');
+VALUES ('García'), ('Rodriguez'), ('González'), ('Fernandez'), ('Lopez'), ('Martinez'), ('Sanchez'), ('Perez'), ('Alonso'), ('Gutierrez'), ('Romero'), ('Alvarez'), ('Muñoz'), ('Moreno'), ('Diaz'), ('Ruiz'), ('Hernandez'), ('Jimenez'), ('Martin'), ('Gomez');
 
 
-INSERT INTO #FakeCustomers (CustomerID, FirstName, LastName, Email, Address)
+INSERT INTO #FakeCustomers (CustomerID, FirstName, LastName, Email, Customer_Address)
 SELECT
-    ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS CustomerID,
-    FirstName,
-    Surname,
-    'email' + CAST(ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS VARCHAR(10)) + '@example.com' AS Email,
-    'Address' + CAST(ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS VARCHAR(10)) AS Address
-FROM
-    @FirstNames
-CROSS JOIN
-    @Surnames
-CROSS JOIN
-    sys.columns;
+    ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS CustomerID
+	, FirstName
+	, Surname
+	, 'email' + CAST(ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS VARCHAR(10)) + '@example.com' AS Email
+	, 'Address' + CAST(ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS VARCHAR(10)) AS Customer_Address
+FROM @FirstNames
+CROSS JOIN @Surnames;
 
 
-SELECT * FROM #FakeCustomers;
-
-DROP TABLE #FakeCustomers;
-*/
+INSERT INTO [dbo].DIM_CUSTOMER VALUES
+	('Lucas', 'Castro', 'M', 'Buyer', 'Av. Sumaré', '03/07/1994')
+SELECT
+	FirstName
+	, LastName
+	, CASE
+		WHEN FirstName IN ('Lucía', 'Dolores', 'Sara', 'Cristina', 'Ana', 'Laura', 'Isabel', 'Josefa', 'Maria', 'Maria Carmen') THEN 'F'
+		WHEN FirstName IN ('José Luís', 'Daniel', 'José António', 'Javier', 'Juan', 'David', 'Francisco', 'José', 'Manuel', 'António') THEN 'M'
+		ELSE NULL
+	END AS Gender
+	, 
+	, Customer_Address
+	, 
+FROM #FakeCustomers;
 
 
 /*  */
