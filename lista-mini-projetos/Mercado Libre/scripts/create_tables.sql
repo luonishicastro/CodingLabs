@@ -93,50 +93,59 @@ CREATE TABLE [dbo].DIM_CUSTOMER (
 /* Inserção de Dados fictícios na tabela de Clientes */
 TRUNCATE TABLE [dbo].DIM_CUSTOMER;
 
-DROP TABLE IF EXISTS #FakeCustomers;
-CREATE TABLE #FakeCustomers (
-    CustomerID INT
-	, FirstName VARCHAR(50)
-	, LastName VARCHAR(50)
-	, Email VARCHAR(100)
-	, Address VARCHAR(100)
+--- Criação de Tabela Temporária para geração de dados ficticios de clientes
+DROP TABLE IF EXISTS #FAKE_CUSTOMER_DATA;
+CREATE TABLE #FAKE_CUSTOMER_DATA (
+    CUSTOMERID INT
+	, CUSTOMERNAME VARCHAR(50)
+	, CUSTOMERSURNAME VARCHAR(50)
+	, CUSTOMERADDRESS VARCHAR(100)
+	, CUSTOMER_BIRTHDAY DATE
+	, CUSTOMERTYPE VARCHAR(15)
 );
 
-DECLARE @FirstNames TABLE (FirstName VARCHAR(50));
-DECLARE @Surnames TABLE (Surname VARCHAR(50));
+-- Criação de variáveis para conter lista de nomes possíveis;
+DECLARE @NAMES TABLE (NAMES VARCHAR(50));
+DECLARE @SURNAMES TABLE (SURNAMES VARCHAR(50));
 
-INSERT INTO @FirstNames (FirstName)
+INSERT INTO @NAMES (NAMES)
 VALUES ('Lucía'), ('Dolores'), ('Sara'), ('Cristina'), ('Ana'), ('Laura'), ('Isabel'), ('Josefa'), ('Maria'), ('Maria Carmen'), ('José Luís'), ('Daniel'), ('José António'), ('Javier'), ('Juan'), ('David'), ('Francisco'), ('José'), ('Manuel'), ('António');
 
-INSERT INTO @Surnames (Surname)
+INSERT INTO @SURNAMES (SURNAMES)
 VALUES ('García'), ('Rodriguez'), ('González'), ('Fernandez'), ('Lopez'), ('Martinez'), ('Sanchez'), ('Perez'), ('Alonso'), ('Gutierrez'), ('Romero'), ('Alvarez'), ('Muñoz'), ('Moreno'), ('Diaz'), ('Ruiz'), ('Hernandez'), ('Jimenez'), ('Martin'), ('Gomez');
 
+-- Criação de variáveis com o range máximo de datas possíveis para nascimento
+DECLARE @STARTDATE DATE = '1970-01-01';
+DECLARE @ENDDATE DATE = '2000-12-31';
 
-INSERT INTO #FakeCustomers (CustomerID, FirstName, LastName, Email, Customer_Address)
+
+INSERT INTO #FAKE_CUSTOMER_DATA (CUSTOMERID, CUSTOMERNAME, CUSTOMERSURNAME, CUSTOMERADDRESS, CUSTOMER_BIRTHDAY, CUSTOMERTYPE)
 SELECT
-    ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS CustomerID
-	, FirstName
-	, Surname
-	, 'email' + CAST(ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS VARCHAR(10)) + '@example.com' AS Email
-	, 'Address' + CAST(ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS VARCHAR(10)) AS Customer_Address
-FROM @FirstNames
-CROSS JOIN @Surnames;
-
-
-INSERT INTO [dbo].DIM_CUSTOMER VALUES
-	('Lucas', 'Castro', 'M', 'Buyer', 'Av. Sumaré', '03/07/1994')
-SELECT
-	FirstName
-	, LastName
+    ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS CUSTOMERID
+	, NAMES
+	, SURNAMES
+	, 'Address' + CAST(ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS VARCHAR(10)) AS CUSTOMERADDRESS
+	, DATEADD(DAY, -FLOOR(RAND(CHECKSUM(NEWID())) * DATEDIFF(DAY, @STARTDATE, @ENDDATE)), @ENDDATE)  AS Birthday
 	, CASE
-		WHEN FirstName IN ('Lucía', 'Dolores', 'Sara', 'Cristina', 'Ana', 'Laura', 'Isabel', 'Josefa', 'Maria', 'Maria Carmen') THEN 'F'
-		WHEN FirstName IN ('José Luís', 'Daniel', 'José António', 'Javier', 'Juan', 'David', 'Francisco', 'José', 'Manuel', 'António') THEN 'M'
+		WHEN ABS(CHECKSUM(NEWID())) % 2 = 0 THEN 'Buyer'
+		ELSE 'Seller'
+	END AS CUSTOMERTYPE
+FROM @NAMES
+CROSS JOIN @SURNAMES;
+
+INSERT INTO [dbo].DIM_CUSTOMER
+SELECT
+	CUSTOMERNAME
+	, CUSTOMERSURNAME
+	, CASE
+		WHEN CUSTOMERNAME IN ('Lucía', 'Dolores', 'Sara', 'Cristina', 'Ana', 'Laura', 'Isabel', 'Josefa', 'Maria', 'Maria Carmen') THEN 'F'
+		WHEN CUSTOMERNAME IN ('José Luís', 'Daniel', 'José António', 'Javier', 'Juan', 'David', 'Francisco', 'José', 'Manuel', 'António') THEN 'M'
 		ELSE NULL
-	END AS Gender
-	, 
-	, Customer_Address
-	, 
-FROM #FakeCustomers;
+	END AS CUSTOMER_GENDER
+	, CUSTOMERTYPE
+	, CUSTOMERADDRESS
+	, CUSTOMER_BIRTHDAY
+FROM #FAKE_CUSTOMER_DATA;
 
 
 /*  */
@@ -151,7 +160,21 @@ INSERT INTO [dbo].[FACT_ORDER] VALUES
 	(3, 1, 1)
 
 
-/*  */
+/* Inserção de Dados na tabela Categoria */
 TRUNCATE TABLE [dbo].DIM_CATEGORY;
 INSERT INTO [dbo].DIM_CATEGORY VALUES
-	('Telefones e smartphones', '')
+	('Celulares e Smartphones', 'Tecnologia > Celulares e Telefones > Celulares e Smartphones')
+	, ('Acessórios para Celulares', 'Tecnologia > Celulares e Telefones > Acessórios para Celulares')
+	, ('Componentes para PC', 'Tecnologia > Informática > Componentes para PC')
+	, ('Impressão', 'Tecnologia > Informática > Impressão')
+	, ('Acessórios para Notebook', 'Tecnologia > Informática > Acessórios para Notebook')
+	, ('Conectividade e Redes', 'Tecnologia > Informática > Conectividade e Redes')
+	, ('Acessórios para Câmeras', 'Tecnologia > Câmeras e Acessórios > Acessórios para Câmeras')
+	, ('Câmeras', 'Tecnologia > Câmeras e Acessórios > Câmeras')
+	, ('Acessórios para Áudio e Vídeo', 'Tecnologia > Eletrônicos, Áudio e Vídeo > Acessórios para Áudio e Vídeo')
+	, ('Áudio Portátil e Acessórios', 'Tecnologia > Eletrônicos, Áudio e Vídeo > Áudio Portátil e Acessórios')
+	, ('Componentes Eletrônicos', 'Tecnologia > Eletrônicos, Áudio e Vídeo > Componentes Eletrônicos')
+	, ('Equipamentos para DJs', 'Tecnologia > Eletrônicos, Áudio e Vídeo > Equipamentos para DJs')
+	, ('Video Games', 'Tecnologia > Games > Video Games')
+	, ('Fliperama e Arcade', 'Tecnologia > Games > Fliperama e Arcade')
+	, ('Televisores', 'Tecnologia > Televisores')
