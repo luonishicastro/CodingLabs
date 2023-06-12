@@ -39,3 +39,5 @@ I. Definição das métricas
 * Quantidade de vendas realizadas = soma das quantidades de cada ordem
 * Quantidade de produtos vendidos = contagem distinta do total de produtos vendidos por id do item
 * Total vendido = soma em todas as ordens, da quantidade de vendas realizadas vezes o preço unitário do produto
+
+Por definição, considerando que no site do Mercado Livre a relação entre anúncio e quantidade de itens é 1:1, atribui para cada ordem a quantidade de somente 1 item.
