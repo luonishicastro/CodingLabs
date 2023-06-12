@@ -44,3 +44,5 @@ Por definição, considerando que no site do Mercado Livre a relação entre an�
 
 II. Dados de Teste
 * Para testar cada uma das views dos exercícios, foram inseridos artificialmente dados de teste usando RAND() e CROSS JOIN;
+
+III. Fiz a inclusão de um terceiro bloco de scripts em Python para criar um tabela no Banco de Dados para os itens. O próximo passo seria substituir os dados falsos gerados por essa tabela.
