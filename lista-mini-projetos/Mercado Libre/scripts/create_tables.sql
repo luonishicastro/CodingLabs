@@ -154,9 +154,9 @@ FROM #FAKE_CUSTOMER_DATA;
 
 TRUNCATE TABLE [dbo].FACT_ITEM;
 INSERT INTO [dbo].FACT_ITEM VALUES
-	('Samsung Galaxy A21s (SM-A217M/DS) Preto', CAST('2023-05-12' AS DATE), 1, 1079.10)
+	('Samsung Galaxy A21s (SM-A217M/DS) Preto', CAST('2020-01-12' AS DATE), 1, 1579.10)
 	, ('Apple iPhone XR 128gb .. De Vitrine Original C/nf E Garantia', CAST('2022-07-07' AS DATE), 1, 2199)
-	, ('Xiaomi Pocophone Poco F5 Dual SIM 256 GB preto 8 GB RAM', CAST('2022-06-11' AS DATE), 1, 2846)
+	, ('Xiaomi Pocophone Poco F5 Dual SIM 256 GB preto 8 GB RAM', CAST('2020-01-11' AS DATE), 1, 2846)
 	, ('Samsung Galaxy S21 FE 5G (Exynos) 5G Dual SIM 128 GB white 6 GB RAM', NULL, 1, 2581)
 	, ('Samsung Galaxy S20 FE 5G 5G Dual SIM 128 GB cloud navy 6 GB RAM', NULL, 1, 1947)
 	, ('Moto G5S Plus Dual SIM 32 GB lunar gray 3 GB RAM', CAST('2022-12-11' AS DATE), 1, 599)
