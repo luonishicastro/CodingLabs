@@ -41,3 +41,6 @@ I. Definição das métricas
 * Total vendido = soma em todas as ordens, da quantidade de vendas realizadas vezes o preço unitário do produto
 
 Por definição, considerando que no site do Mercado Livre a relação entre anúncio e quantidade de itens é 1:1, atribui para cada ordem a quantidade de somente 1 item.
+
+II. Dados de Teste
+* Para testar cada uma das views dos exercícios, foram inseridos artificialmente dados de teste usando RAND() e CROSS JOIN;
