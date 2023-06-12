@@ -90,17 +90,18 @@ CREATE TABLE [dbo].DIM_CUSTOMER (
 -- Dados Teste
 --=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
 
-/* Inserção de Dados fictícios na tabela de Clientes */
+--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
+-- Inserção de Dados fictícios na tabela de Clientes
+--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
 TRUNCATE TABLE [dbo].DIM_CUSTOMER;
 
 --- Criação de Tabela Temporária para geração de dados ficticios de clientes
 DROP TABLE IF EXISTS #FAKE_CUSTOMER_DATA;
 CREATE TABLE #FAKE_CUSTOMER_DATA (
-    CUSTOMERID INT
-	, CUSTOMERNAME VARCHAR(50)
+    CUSTOMERNAME VARCHAR(50)
 	, CUSTOMERSURNAME VARCHAR(50)
 	, CUSTOMERADDRESS VARCHAR(100)
-	, CUSTOMER_BIRTHDAY DATE
+	, CUSTOMERBIRTHDAY DATE
 	, CUSTOMERTYPE VARCHAR(15)
 );
 
@@ -118,49 +119,94 @@ VALUES ('García'), ('Rodriguez'), ('González'), ('Fernandez'), ('Lopez'), ('Mart
 DECLARE @STARTDATE DATE = '1970-01-01';
 DECLARE @ENDDATE DATE = '2000-12-31';
 
-
-INSERT INTO #FAKE_CUSTOMER_DATA (CUSTOMERID, CUSTOMERNAME, CUSTOMERSURNAME, CUSTOMERADDRESS, CUSTOMER_BIRTHDAY, CUSTOMERTYPE)
+-- Inserts de dados
+INSERT INTO #FAKE_CUSTOMER_DATA (CUSTOMERNAME, CUSTOMERSURNAME, CUSTOMERADDRESS, CUSTOMERBIRTHDAY, CUSTOMERTYPE)
 SELECT
-    ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS CUSTOMERID
-	, NAMES
+    NAMES
 	, SURNAMES
-	, 'Address' + CAST(ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS VARCHAR(10)) AS CUSTOMERADDRESS
-	, DATEADD(DAY, -FLOOR(RAND(CHECKSUM(NEWID())) * DATEDIFF(DAY, @STARTDATE, @ENDDATE)), @ENDDATE)  AS Birthday
-	, CASE
+	, CUSTOMERADDRESS = 'Address' + CAST(ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS VARCHAR(10))
+	, CUSTOMERBIRTHDAY = DATEADD(DAY, -FLOOR(RAND(CHECKSUM(NEWID())) * DATEDIFF(DAY, @STARTDATE, @ENDDATE)), @ENDDATE)
+	, CUSTOMERTYPE = CASE
 		WHEN ABS(CHECKSUM(NEWID())) % 2 = 0 THEN 'Buyer'
 		ELSE 'Seller'
-	END AS CUSTOMERTYPE
+	END
 FROM @NAMES
 CROSS JOIN @SURNAMES;
 
 INSERT INTO [dbo].DIM_CUSTOMER
 SELECT
-	CUSTOMERNAME
-	, CUSTOMERSURNAME
+	CUSTOMERNAME																																		AS CUSTOMER_NAME
+	, CUSTOMERSURNAME																																	AS CUSTOMER_SURNAME
 	, CASE
 		WHEN CUSTOMERNAME IN ('Lucía', 'Dolores', 'Sara', 'Cristina', 'Ana', 'Laura', 'Isabel', 'Josefa', 'Maria', 'Maria Carmen') THEN 'F'
 		WHEN CUSTOMERNAME IN ('José Luís', 'Daniel', 'José António', 'Javier', 'Juan', 'David', 'Francisco', 'José', 'Manuel', 'António') THEN 'M'
 		ELSE NULL
-	END AS CUSTOMER_GENDER
-	, CUSTOMERTYPE
-	, CUSTOMERADDRESS
-	, CUSTOMER_BIRTHDAY
+	END																																					AS CUSTOMER_GENDER
+	, CUSTOMERTYPE																																		AS CUSTOMER_TYPE
+	, CUSTOMERADDRESS																																	AS CUSTOMER_ADDRESS
+	, CUSTOMERBIRTHDAY																																	AS CUSTOMER_BIRTHDAY
 FROM #FAKE_CUSTOMER_DATA;
 
 
-/*  */
+--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
+-- 
+--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
+
 TRUNCATE TABLE [dbo].FACT_ITEM;
 INSERT INTO [dbo].FACT_ITEM VALUES
-	('Samsung Galaxy A21s (SM-A217M/DS) Preto', '12/05/2023', 1, 1079.10)
+	('Samsung Galaxy A21s (SM-A217M/DS) Preto', CAST('2023-05-12' AS DATE), 1, 1079.10)
+	, ('Apple iPhone XR 128gb .. De Vitrine Original C/nf E Garantia', CAST('2022-07-07' AS DATE), 1, 2199)
+	, ('Xiaomi Pocophone Poco F5 Dual SIM 256 GB preto 8 GB RAM', CAST('2022-06-11' AS DATE), 1, 2846)
+	, ('Samsung Galaxy S21 FE 5G (Exynos) 5G Dual SIM 128 GB white 6 GB RAM', NULL, 1, 2581)
+	, ('Samsung Galaxy S20 FE 5G 5G Dual SIM 128 GB cloud navy 6 GB RAM', NULL, 1, 1947)
+	, ('Moto G5S Plus Dual SIM 32 GB lunar gray 3 GB RAM', CAST('2022-12-11' AS DATE), 1, 599)
+	, ('Vitrine Apple iPhone 12 128gb Original - 10x S/ Juros', CAST('2022-11-15' AS DATE), 1, 3699)
+	, ('iPhone 11 64gb Preto Original De Vitrine + Nf E Garantia', NULL, 1, 2439)
+	, ('Xiaomi Redmi Note 11S Dual SIM 64 GB graphite gray 6 GB RAM', CAST('2021-01-21' AS DATE), 1, 1186)
+	, ('Xiaomi 12 Dual SIM 256 GB gray 8 GB RAM', CAST('2022-12-12' AS DATE), 1, 3597)
+	
 
-
-/*  */
+--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
+-- Inserção de Dados fictícios na tabela de Clientes de Ordens
+--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
 TRUNCATE TABLE [dbo].[FACT_ORDER];
-INSERT INTO [dbo].[FACT_ORDER] VALUES
-	(3, 1, 1)
+
+DROP TABLE IF EXISTS #FAKE_ORDER_DATA;
+CREATE TABLE #FAKE_ORDER_DATA (
+    ITEMID INT
+	, CUSTOMERID INT
+	, QUANTITY INT
+);
+
+--- Delimitadores
+DECLARE @CUTOMERID_LIMIT INT = 400;
+DECLARE @ITEMID_LIMIT INT = 10;
+DECLARE @QUANTITY_LIMIT_UP INT = 100;
+DECLARE @QUANTITY_LIMIT_DOWN INT = 1;
+
+--- Definição da quantidade de registros
+WHILE (SELECT COUNT(*) FROM #FAKE_ORDER_DATA) < 1000
+BEGIN
+    INSERT INTO #FAKE_ORDER_DATA (ITEMID, CUSTOMERID, QUANTITY)
+    SELECT 
+        ITEMID = ABS(CHECKSUM(NEWID())) % @ITEMID_LIMIT + 1
+		, CUSTOMERID = ABS(CHECKSUM(NEWID())) % @CUTOMERID_LIMIT + 1
+		, QUANTITY = ABS(CHECKSUM(NEWID())) % (@QUANTITY_LIMIT_UP - @QUANTITY_LIMIT_DOWN + 1) + @QUANTITY_LIMIT_DOWN
+		--- Gera a métrica aleatóriamente definida entre os delimitadores
+    FROM (VALUES (1),(2),(3),(4),(5)) AS Numbers(Number)
+END
 
 
-/* Inserção de Dados na tabela Categoria */
+INSERT INTO [dbo].[FACT_ORDER]
+SELECT
+	ITEMID																																				AS ITEM_ID
+	, CUSTOMERID																																		AS CUSTOMER_ID
+	, QUANTITY																																			AS QUANTITY
+FROM #FAKE_ORDER_DATA;
+
+--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
+-- Inserção de Dados na tabela Categoria
+--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
 TRUNCATE TABLE [dbo].DIM_CATEGORY;
 INSERT INTO [dbo].DIM_CATEGORY VALUES
 	('Celulares e Smartphones', 'Tecnologia > Celulares e Telefones > Celulares e Smartphones')

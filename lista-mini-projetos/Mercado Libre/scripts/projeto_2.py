@@ -4,7 +4,7 @@ import pandas as pd
 import functools as a
 import csv
 
-item_range = 10
+item_range = 50
 items = ['chromecast', 'Google Home', 'Apple TV', 'Amazon Fire TV']
 
 features = ['site_id', 'title', 'subtitle', 'seller_id', 'category_id', 'official_store_id', 'price', 'base_price'
