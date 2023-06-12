@@ -60,10 +60,6 @@ CREATE TABLE [dbo].[FACT_ORDER] (
 --=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
 -- Criação Tabelas Dimensão
 --=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
-
--- ITEM_STATE ** Acrescimos em relação ao pedido
--- CUSTOMER_SEX ** Acrescimos em relação ao pedido
-
 /* Tabela Category - entidade com a descrição de cada categoria. */
 DROP TABLE IF EXISTS [dbo].DIM_CATEGORY;
 
@@ -89,6 +85,7 @@ CREATE TABLE [dbo].DIM_CUSTOMER (
 --=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
 -- Dados Teste
 --=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
+/*
 
 --=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
 -- Inserção de Dados fictícios na tabela de Clientes
@@ -149,21 +146,32 @@ FROM #FAKE_CUSTOMER_DATA;
 
 
 --=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
--- 
+-- Inserção de Dados fictícios na tabela de Items
 --=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
 
 TRUNCATE TABLE [dbo].FACT_ITEM;
 INSERT INTO [dbo].FACT_ITEM VALUES
 	('Samsung Galaxy A21s (SM-A217M/DS) Preto', CAST('2020-01-12' AS DATE), 1, 1579.10)
-	, ('Apple iPhone XR 128gb .. De Vitrine Original C/nf E Garantia', CAST('2022-07-07' AS DATE), 1, 2199)
+	, ('Apple iPhone XR 128gb .. De Vitrine Original C/nf E Garantia', CAST('2020-07-07' AS DATE), 1, 2199)
 	, ('Xiaomi Pocophone Poco F5 Dual SIM 256 GB preto 8 GB RAM', CAST('2020-01-11' AS DATE), 1, 2846)
 	, ('Samsung Galaxy S21 FE 5G (Exynos) 5G Dual SIM 128 GB white 6 GB RAM', NULL, 1, 2581)
 	, ('Samsung Galaxy S20 FE 5G 5G Dual SIM 128 GB cloud navy 6 GB RAM', NULL, 1, 1947)
-	, ('Moto G5S Plus Dual SIM 32 GB lunar gray 3 GB RAM', CAST('2022-12-11' AS DATE), 1, 599)
-	, ('Vitrine Apple iPhone 12 128gb Original - 10x S/ Juros', CAST('2022-11-15' AS DATE), 1, 3699)
+	, ('Moto G5S Plus Dual SIM 32 GB lunar gray 3 GB RAM', CAST('2020-12-11' AS DATE), 1, 599)
+	, ('Vitrine Apple iPhone 12 128gb Original - 10x S/ Juros', CAST('2020-11-15' AS DATE), 1, 3699)
 	, ('iPhone 11 64gb Preto Original De Vitrine + Nf E Garantia', NULL, 1, 2439)
-	, ('Xiaomi Redmi Note 11S Dual SIM 64 GB graphite gray 6 GB RAM', CAST('2021-01-21' AS DATE), 1, 1186)
-	, ('Xiaomi 12 Dual SIM 256 GB gray 8 GB RAM', CAST('2022-12-12' AS DATE), 1, 3597)
+	, ('Xiaomi Redmi Note 11S Dual SIM 64 GB graphite gray 6 GB RAM', CAST('2020-01-21' AS DATE), 1, 1186)
+	, ('Xiaomi 12 Dual SIM 256 GB gray 8 GB RAM', CAST('2020-12-12' AS DATE), 1, 3597)
+
+	, ('Moto G22 Dual SIM 64 GB cosmic black 4 GB RAM', CAST('2020-07-11' AS DATE), 1, 899.49)
+	, ('Samsung Galaxy A13 Dual SIM 128 GB preto 4 GB RAM', CAST('2020-12-15' AS DATE), 1, 1240)
+	, ('iPhone 12 128 Gb Branco Vitrine Garantia + Acessórios', CAST('2020-07-06' AS DATE), 1, 3797)
+	, ('Xiaomi Poco F5 5g 12/256 Global Lançamento 2023 + Nfe', CAST('2020-11-21' AS DATE), 1, 3590)
+	, ('Xiaomi Pocophone Poco X4 Pro 5G Dual SIM 256 GB laser blue 8 GB RAM', CAST('2020-11-17' AS DATE), 1, 2376)
+	, ('Celular Xiaomi Poco F5 Pro 5g 12/256gb Lançamento 2023', CAST('2020-07-20' AS DATE), 1, 4797)
+	, ('Motorola RAZR 2019 128 GB noir black 6 GB RAM', CAST('2020-07-13' AS DATE), 1, 5039)
+	, ('Promo Apple iPhone 12 128gb Original Vitrine + Brindes', CAST('2020-05-12' AS DATE), 1, 3440)
+	, ('Apple iPhone 12 128 Gb Vitrine Original - 10x Sem Juros', CAST('2020-06-01' AS DATE), 1, 3599.20)
+	-- , ('teste', CAST('9999-12-31' AS DATE), 1, 9999)
 	
 
 --=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
@@ -181,7 +189,7 @@ CREATE TABLE #FAKE_ORDER_DATA (
 --- Delimitadores
 DECLARE @CUTOMERID_LIMIT INT = 400;
 DECLARE @ITEMID_LIMIT INT = 10;
-DECLARE @QUANTITY_LIMIT_UP INT = 100;
+DECLARE @QUANTITY_LIMIT_UP INT = 1; --- caso mude a quantidade máxima de itens por ordem, a regra para calcular o preço total da ordem deverá ser alterada
 DECLARE @QUANTITY_LIMIT_DOWN INT = 1;
 
 --- Definição da quantidade de registros
@@ -192,7 +200,7 @@ BEGIN
         ITEMID = ABS(CHECKSUM(NEWID())) % @ITEMID_LIMIT + 1
 		, CUSTOMERID = ABS(CHECKSUM(NEWID())) % @CUTOMERID_LIMIT + 1
 		, QUANTITY = ABS(CHECKSUM(NEWID())) % (@QUANTITY_LIMIT_UP - @QUANTITY_LIMIT_DOWN + 1) + @QUANTITY_LIMIT_DOWN
-		--- Gera a métrica aleatóriamente definida entre os delimitadores
+		--- Gera a métrica aleatoriamente definida entre os delimitadores
     FROM (VALUES (1),(2),(3),(4),(5)) AS Numbers(Number)
 END
 
