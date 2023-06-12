@@ -35,3 +35,7 @@ Nesse caso particular e somente como exemplo, são resultado para a busca "chrom
 
 
 # Adendos
+I. Definição das métricas
+* Quantidade de vendas realizadas = soma das quantidades de cada ordem
+* Quantidade de produtos vendidos = contagem distinta do total de produtos vendidos por id do item
+* Total vendido = soma em todas as ordens, da quantidade de vendas realizadas vezes o preço unitário do produto
