@@ -4,6 +4,7 @@ O repositório listas-prog se refere à listas de exercícios de programação e
 Classificação e descrição dos sub-repositórios:
 * Lista mini-projetos
 * Lista Kaggle
-* Listas Python
-* Lista SQL
+* Python Lists
+  1. Curso em Vídeo
+* SQL Lists
 * databases
