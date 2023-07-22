@@ -2,6 +2,5 @@
 
 def welcome_message():
     name = input('What is your name?\n')
-    print('Hello {}.'.format(nome))
-    print(f'It is a pleasure to met you {name}')
-    
+    print('Hello {}.'.format(name))
+    print(f'It is a pleasure to met you {name}.')
