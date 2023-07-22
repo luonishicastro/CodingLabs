@@ -1,6 +1,6 @@
 exercise_num = 0
 
-"""Create an algorithm using Python that reads a person's name and displays a welcome message."""
+"""Implement a functional code using Python that reads a person's name and displays a welcome message."""
 # Function to read a person's name
 def read_name():
     name = input('Enter you name: ')
@@ -18,4 +18,4 @@ def execute_program(read_funcion, display_function):
 if __name__ == '__main__' and exercise_num == 1:
     execute_program(read_name, display_welcome_message)
 
-"""Create an algorithm using Python that reads two numbers and displays the sum between them."""
+"""Implement a functional code using Python that reads two numbers and displays the sum between them."""
