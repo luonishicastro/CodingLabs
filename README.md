@@ -3,7 +3,7 @@ This repository refers to programming exercise lists in various high-level langu
 
 Classification and description of the sub-folders:
 * Lista mini-projetos
-* Lista Kaggle
+* Kaggle Competitions
 * Python Lists
   1. Curso em Vídeo
 * SQL Lists
