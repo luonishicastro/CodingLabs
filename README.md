@@ -5,6 +5,7 @@ Classification and description of the sub-folders:
 * Lista mini-projetos
 * Kaggle Competitions
 * Python Lists
-  1. Curso em Vídeo
+  1. Curso em Vídeo - ""
+  2. Data Science Academy - ""
 * SQL Lists
 * databases
