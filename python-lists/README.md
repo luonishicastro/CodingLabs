@@ -1,3 +1,3 @@
 # Python Lists
 * Basic
-1. Loops and Conditionals
+  1. Loops and Conditionals
