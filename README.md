@@ -1,7 +1,7 @@
 # Programming Problems Lists
-O repositório listas-prog se refere à listas de exercícios de programação em diversas linguagens de alto nível, bem como linguagem de consulta estruturada. Estes exercícios se aplicam tanto ao treino diário para melhorar a proficiência em programação quanto em aplicações reais e úteis que podem ser usadas como funções ou serviços.
+This repository refers to programming exercise lists in various high-level languages, as well as structured query language. These exercises are applicable both for daily practice to improve programming proficiency and for real and useful applications that can be used as functions or services.
 
-Classificação e descrição dos sub-repositórios:
+Classification and description of the sub-folders:
 * Lista mini-projetos
 * Lista Kaggle
 * Python Lists
