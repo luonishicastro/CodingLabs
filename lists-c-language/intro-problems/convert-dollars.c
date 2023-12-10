@@ -1,0 +1,1 @@
+// Implement a code using C language that reads how much money a person has in their wallet and displays how many dollars they can buy.

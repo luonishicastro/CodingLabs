@@ -1,0 +1,1 @@
+// Implement a code using C language that reads an integer number and shows its successor and predecessor.

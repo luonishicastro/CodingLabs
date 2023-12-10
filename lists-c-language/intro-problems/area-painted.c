@@ -1,0 +1,1 @@
+// Implement a code using C language that reads the width and height of a wall in meters, calculates its area, and determines the amount of paint needed to paint it, considering that each liter of paint covers an area of 2 square meters.
