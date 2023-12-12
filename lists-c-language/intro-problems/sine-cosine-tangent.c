@@ -1,0 +1,1 @@
+// Implement a code using C language that  reads any angle and displays the sine, cosine, and tangent values of that angle.

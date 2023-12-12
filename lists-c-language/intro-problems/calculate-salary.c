@@ -1,0 +1,1 @@
+// Implement a code using C language that reads an employee's salary and shows their new salary with a 15% increase.

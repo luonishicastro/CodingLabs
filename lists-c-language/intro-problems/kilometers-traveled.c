@@ -1,0 +1,1 @@
+// Implement a code using C language that  asks for the distance in kilometers traveled by a rented car and the number of days it was rented. Calculate the price to pay, considering that the car costs $60 per day and $0.15 per kilometer driven.
