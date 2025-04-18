@@ -1,1 +1,0 @@
-// Implement a code using C language that reads a number and displays its double, triple, and square root.

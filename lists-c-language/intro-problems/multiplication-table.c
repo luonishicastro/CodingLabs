@@ -1,1 +1,0 @@
-// Implement a code using C language that reads any integer and displays its multiplication table on the screen.

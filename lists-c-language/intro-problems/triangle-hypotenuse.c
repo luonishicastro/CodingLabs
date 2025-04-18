@@ -1,1 +1,0 @@
-// Implement a code using C language that reads the lengths of the opposite and adjacent sides of a right-angled triangle, calculates and displays the length of the hypotenuse.
