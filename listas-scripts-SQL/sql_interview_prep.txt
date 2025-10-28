@@ -1,0 +1,140 @@
+1. What is SQL?
+It stands for Structured Query Language, and it's a programming language used for interaction with relational database management systems (RDBMS). This includes fetching, updating, inserting, and removing data from tables.
+
+2. What is a relational database management systems?
+A Relational Database Management System (RDBMS) is a type of software that manages data stored in a relational database. In a relational database, data is organized into tables (also called relations), which consist of rows and columns. Each table represents a specific entity (like customers, orders, or products), and relationships between tables are defined using keys.
+
+3. What is an SQL statement?
+Also known as an SQL command. It's a string of characters interpreted by the SQL engine as a legal command and executed accordingly. Some examples of SQL statements are SELECT, CREATE, DELETE, DROP, REVOKE, and so on.
+
+4. What types of SQL commands do you know?
+Data Definition Language (DDL) – to define and modify the structure of a database.
+Data Manipulation Language (DML) – to access, manipulate, and modify data in a database.
+Data Control Language (DCL) – to control user access to the data in the database and give or revoke privileges to a specific user or a group of users.
+Transaction Control Language (TCL) – to control transactions in a database.
+Data Query Language (DQL) – to perform queries on the data in a database to retrieve the necessary information from it.
+
+5. Give some examples of common SQL commands.
+DDL: CREATE, ALTER TABLE, DROP, TRUNCATE, and ADD COLUMN
+DML: UPDATE, DELETE, and INSERT
+DCL: GRANT and REVOKE
+TCL: COMMIT, SET TRANSACTION, ROLLBACK, and SAVEPOINT
+DQL: – SELECT
+
+6. What is DBMS, and what types of DBMS do you know?
+It stands for Database Management System, a software package used to perform various operations on the data stored in a database, such as accessing, updating, wrangling, inserting, and removing data. There are various types of DBMS, such as relational, hierarchical, network, graph, or object-oriented. These types are based on the way the data is organized, structured, and stored in the system.
+
+7. What is a constraint, and why use constraints?
+A set of conditions defining the type of data that can be input into each column of a table. Constraints ensure data integrity in a table and block undesired actions.
+
+8. What SQL constraints do you know?
+DEFAULT – provides a default value for a column.
+UNIQUE – allows only unique values.
+NOT NULL – allows only non-null values.
+PRIMARY KEY – allows only unique and strictly non-null values (NOT NULL and UNIQUE).
+FOREIGN KEY – provides shared keys between two or more tables.
+
+9. What is a primary key in SQL?
+A column (or multiple columns) of a table to which the PRIMARY KEY constraint was imposed to ensure unique and non-null values in that column. In other words, a primary key is a combination of the NOT NULL and UNIQUE constraints. The primary key uniquely identifies each record of the table. Each table can define at most one PRIMARY KEY (which may be composite). A PRIMARY KEY  is strongly recommended but not strictly required by all engines.
+
+10. What is a foreign key in SQL? 
+A column (or multiple columns) of a table to which the FOREIGN KEY (or UNIQUE key) constraint was imposed to link this column to the primary key in another table (or several tables). The purpose of foreign keys is to keep connected various tables of a database.
+
+11. What is an SQL index?
+A special data structure related to a database table and used for storing its important parts and enabling faster data search and retrieval. Indexes are especially efficient for large databases, where they significantly enhance query performance.
+
+12. What types of indexes do you know?
+Unique index – doesn't allow duplicates in a table column and hence helps maintain data integrity.
+Clustered index – defines the physical order of records of a database table and performs data searching based on the key values. A table can have only one clustered index.
+Non-clustered index – keeps the order of the table records that don't match the physical order of the actual data on the disk. It means that the data is stored in one place and a non-clustered index – in another one. A table can have multiple non-clustered indexes.
+
+13. What is a schema?
+A collection of database structural elements such as tables, stored procedures, indexes, functions, and triggers. It shows the overall database architecture, specifies the relationships between various objects of a database, and defines different access permissions for them. Read our database schema guide for a deeper understanding.
+
+14. What is a clause?
+A condition imposed on a SQL query to filter the data to obtain the desired result. Some examples are WHERE, LIMIT, HAVING, LIKE, AND, OR, ORDER BY, etc.
+
+15. What are some common statements used with the SELECT query?
+The most common ones are FROM, GROUP BY, JOIN, WHERE, ORDER BY, LIMIT, and HAVING.
+
+16. What are relationships? Give some examples.
+Relationships are the connections and correlations between entities, basically meaning how two or more tables of a database are related to one another.
+
+17. What is a NULL value? How is it different from zero or a blank space?
+A NULL value indicates the absence of data for a certain cell of a table. Instead, zero is a valid numeric value, and an empty string is a legal string of zero length.
+
+18. What is the difference between SQL and NoSQL?
+SQL databases are relational, structured, and use tables with predefined schemas, while NoSQL databases are non-relational, schema-less, and designed to handle unstructured or semi-structured data.
+
+19. What is a function in SQL?
+A database object representing a set of SQL statements frequently used for a certain task. A function takes in some input parameters, performs calculations or other manipulations on them, and returns the result. Functions help improve code readability and avoid repetition of the same code snippets.
+
+20. What types of SQL functions do you know?
+Aggregate functions – work on multiple, usually grouped records for the provided columns of a table, and return a single value (usually by group).
+Scalar functions – work on each individual value and return a single value.
+
+21. What SQL aggregate functions do you know?
+AVG() – returns the average value
+SUM() – returns the sum of values
+MIN() – returns the minimum value
+MAX() – returns the maximum value
+COUNT() – returns the number of rows, including those with null values
+
+22. What SQL scalar functions do you know?
+LEN() (in other SQL dialects – LENGTH()) – returns the length of a string, including the blank spaces
+UCASE() (in other SQL dialects – UPPER()) – returns a string converted to the upper case
+LCASE() (in other SQL dialects – LOWER()) – returns a string converted to the lower case
+INITCAP() – returns a string converted to the title case (i.e., each word of the string starts from a capital letter)
+MID() (in other SQL dialects – SUBSTR()) – extracts a substring from a string
+ROUND() – returns the numerical value rounded to a specified number of decimals
+NOW() – returns the current date and time
+
+23. What are character manipulation functions in SQL?
+Character manipulation functions represent a subset of character functions, and they're used to modify the text data.
+CONCAT() – joins two or more string values appending the second string to the end of the first one
+SUBSTRING()/SUBSTR() – returns a part of a string satisfying the provided start and end points
+LENGTH() (in other SQL dialects – LEN()) – returns the length of a string, including the blank spaces
+REPLACE() – replaces all occurrences of a defined substring in a provided string with another substring
+INSTR() – returns the numeric position of a defined substring in a provided string
+LPAD() and RPAD() – return the padding of the left-side/right-side character for right-justified/left-justified value
+TRIM() – removes all the defined characters, as well as white spaces, from the left, right, or both ends of a provided string
+
+24. What is the difference between local and global variables?
+Local variables can be accessed only inside the function in which they were declared. Instead, global variables, being declared outside any function, are stored in fixed memory structures and can be used throughout the entire program.
+
+25. What is indexing in SQL, and how does it improve performance?
+Indexing creates a special data structure that speeds up data retrieval by allowing the database to find rows more efficiently. It works like an optimized lookup table, reducing the need for full table scans. However, excessive indexing can slow down insert, update, and delete operations due to the need for index maintenance.
+
+26. What is a stored procedure, and how is it different from a function?
+A stored procedure is a precompiled set of SQL statements executed as a unit to perform a task. Procedures can modify data or schema objects, manage transactions, and return zero or more result sets. Functions, on the other hand, are typically used in SQL expressions, must return a value (scalar or table-valued), and in many databases are restricted from side effects. Exact behavior differs by DB (e.g., T-SQL has scalar and table-valued functions; PostgreSQL distinguishes between functions and procedures).
+
+27. What are SQL set operators?
+UNION – returns the records obtained by at least one of two queries (excluding duplicates)
+UNION ALL – returns the records obtained by at least one of two queries (including duplicates)
+INTERSECT – returns the records obtained by both queries
+EXCEPT (called MINUS in MySQL and Oracle) – returns only the records obtained by the first query but not the second one
+
+28. What operator is used in the query for pattern matching?
+The LIKE operator in combination with the % and _ wildcards. The % wildcard represents any number of characters including zero, while _ – strictly one character.
+
+29. What is the difference between a primary key and a unique key in SQL?
+While both types of keys ensure unique values in a column of a table, the first one uniquely identifies each record of the table, and the second one prevents duplicates in that column.
+
+30. In which order does the interpreter execute the common statements in the SELECT query?
+Here is the SQL order of execution: 
+FROM → ON → JOIN → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT/OFFSET (FETCH)
+
+31. What is a view in SQL?
+A virtual table containing a subset of data retrieved from one or more database tables (or other views). Standard views store no data; materialized views do. Views can simplify queries, encapsulate logic, and, combined with privileges, restrict columns/rows. They can join/aggregate data from multiple tables.
+
+32. What types of SQL relationships do you know?
+One-to-one – each record in one table corresponds to only one record in another table
+One-to-many – each record in one table corresponds to several records in another table
+Many-to-many – each record in both tables corresponds to several records in another table
+
+33. What is normalization in SQL?
+Normalization is a process of database design that includes organizing and restructuring data in a way to reduce data redundancy, dependency, duplication, and inconsistency. This leads to enhanced data integrity, more tables within the database, more efficient data access and security control, and greater query flexibility.
+
+34. What is denormalization in SQL?
+Denormalization is the process opposite of normalization: it introduces data redundancy and combines data from multiple tables. Denormalization optimizes the performance of the database infrastructure in situations when read operations are more important than write operations since it helps avoid complex joins and reduces the time of query running.
+
