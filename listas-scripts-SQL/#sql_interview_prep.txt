@@ -154,3 +154,6 @@ The first one works on aggregated data after they are grouped, while the second 
 39. How to select random rows from a table?
 Using the RAND() function in combination with ORDER BY and LIMIT. In some SQL dialects, such as PostgreSQL, it's called RANDOM(). For example, the following code will return five random rows from a table in MySQL:
 SELECT * FROM table_name ORDER BY RAND() LIMIT 5;
+
+40. What is the difference between OLAP and OLTP systems?
+OLAP (Online Analytical Processing) analyzes historical data and supports complex queries. It’s optimized for read-heavy workloads and is often used in data warehouses for business intelligence tasks. OLTP (Online Transaction Processing) is designed for managing real-time transactional data. It’s optimized for write-heavy workloads and is used in operational databases for day-to-day business operations.
