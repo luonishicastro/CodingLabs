@@ -1,0 +1,105 @@
+####################################################
+1 - Criar chave sptrans
+http://www.sptrans.com.br/desenvolvedores/Default.aspx
+
+
+http://api.olhovivo.sptrans.com.br/v2.1/Login/Autenticar?token=
+http://api.olhovivo.sptrans.com.br/v2.1/Linha/Buscar?termosBusca=8000
+
+####################################################
+## PREPARAR PYTHON
+# Instalar python 3.4 e bibliotecas 
+# para cada terminal que abrir setar o alias
+
+sudo yum install python34
+alias python='/usr/bin/python3.4'
+sudo yum install python34-setuptools
+sudo easy_install-3.4 pip
+sudo pip install requests
+
+####################################################
+# DEPLOY PROGRAMA
+sptrans.sh
+sptrans.py
+
+https://github.com/fabiogjardim/projetofinal
+
+####################################################
+## INICIAR KAFKA
+cd kafka_2.11-0.11.0.1
+nohup bin/kafka-server-start.sh config/server.properties &
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic sptrans
+bin/kafka-topics.sh --list --zookeeper localhost:2181
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic sptrans 
+
+####################################################
+
+## NIFI TO KAFKA
+sptrans.sources = source1
+sptrans.channels = channel1 
+sptrans.sinks = sink1 
+
+sptrans.sources.source1.type = org.apache.flume.source.kafka.KafkaSource
+sptrans.sources.source1.channels = channel1
+sptrans.sources.source1.batchSize = 5000
+sptrans.sources.source1.batchDurationMillis = 2000
+sptrans.sources.source1.kafka.bootstrap.servers = localhost:9092
+sptrans.sources.source1.kafka.topics = sptrans
+sptrans.sources.source1.kafka.consumer.group.id = nifi
+
+sptrans.channels.channel1.type = memory
+sptrans.channels.channel1.capacity = 100000
+sptrans.channels.channel1.transactionCapacity = 100000
+
+#sink para enviar os dados para o hdfs
+sptrans.sinks.sink1.channel = channel1
+sptrans.sinks.sink1.type=hdfs
+sptrans.sinks.sink1.hdfs.path=/aula/sptrans
+sptrans.sinks.sink1.hdfs.fileType=DataStream
+sptrans.sinks.sink1.hdfs.writeformat=Text
+sptrans.sinks.sink1.hdfs.batchSize=1000
+sptrans.sinks.sink1.hdfs.rollSize=0
+sptrans.sinks.sink1.hdfs.rollCount=100
+sptrans.sinks.sink1.hdfs.rollInterval=1000
+sptrans.sinks.sink1.hdfs.useLocalTimeStamp=true
+##################################
+
+#Iniciar o agent flume
+cd apache-flume-1.7.0-bin
+conf/
+vi sptrans.conf 
+cd ..
+bin/flume-ng agent --conf ./conf --conf-file ./conf/sptrans.conf --name sptrans -Dflume.root.logger=INFO,console
+
+
+#######################################
+#Criar external table com o location apontando para o pasta que o flume esta salvando os arquivos
+create external table sptrans (
+hora string, 
+linha string, 
+origem string, 
+destino string,
+x string,
+y string)
+row format delimited fields terminated by ';'
+LOCATION '/aula/sptrans';
+
+#######################################
+#Analise com Spark
+#Copiar o hive-shell.xml para o conf do Spark
+
+sudo cp /usr/lib/hive/conf/hive-site.xml /usr/lib/spark/conf/
+
+from pyspark.sql import HiveContext
+from pyspark import SparkContext
+import pyspark.sql.functions as F
+from pyspark.sql.functions import count, col 
+
+h = HiveContext(sc)
+df = h.sql("select * From aula.sptrans")
+
+dfMax = df.groupBy("linha").agg(F.max(df.x).alias('maxX'))
+dfMin = df.groupBy("linha").agg(F.min(df.x).alias('minX'))
+dfJoin = dfMax.join(dfMin,(dfMax.linha == dfMin.linha)).select(dfMax.linha,dfMax.maxX, dfMin.minX)
+dfJoin.where(dfJoin.maxX == dfJoin.minX).show()
+dfJoin.select((dfJoin.maxX + dfJoin.minX),dfJoin.linha).show()

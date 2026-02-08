@@ -1,0 +1,9 @@
+%1. 
+%Mostre na tela o número PI com 6 casas decimais
+
+a=pi;
+disp(sprintf('6 casas decimais de PI: %0.6f', a))
+
+%
+%2
+%
