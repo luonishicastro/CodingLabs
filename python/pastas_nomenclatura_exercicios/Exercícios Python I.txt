@@ -11,60 +11,51 @@ print('Hello World! Hello {} you Mothafuckar!!'.format(nome))
 print('Data de Nascimento')
 
 dia = input('Dia: ')
-mes = input('Mês: ')
+mes = input('MÃªs: ')
 ano = input('Ano: ')
 
 print('{}/{}/{}'.format(dia, mes, ano))
 
 ##
-#3
-#Crie um script Python que leia dois números e tente mostrar a soma entre eles.
-
-num1 = int(input('Digite o primeiro número: '))
-num2 = int(input('Digite o segundo número: '))
-
-print('A soma entre {} e {} é {}'.format(num1, num2, num1 + num2))
-
-##
 #4
-#Faça um programa que leia algo pelo teclado e mostre na tela o seu tipo primitivo e todas as informações possíveis sobre ele;
+#FaÃ§a um programa que leia algo pelo teclado e mostre na tela o seu tipo primitivo e todas as informaÃ§Ãµes possÃ­veis sobre ele;
 
 algo = input('Digite algo: ')
 print('Tipo primitivo: {}'.format(type(algo)))
-print('Tipo numérico: {}'.format(algo.isnumeric()))
-print('Tipo alfanumérico: {}'.format(algo.isalnum()))
+print('Tipo numÃ©rico: {}'.format(algo.isnumeric()))
+print('Tipo alfanumÃ©rico: {}'.format(algo.isalnum()))
 
 ##
 #5
-#Faça um programa que leia um número inteiro e mostre na tela o seu sucessor e seu antecessor
+#FaÃ§a um programa que leia um nÃºmero inteiro e mostre na tela o seu sucessor e seu antecessor
 
-num = int(input('Digite um número: '))
-print('O Antecessor de {} é {}'.format(num, num-1))
-print('O Sucessor de {} é {}'.format(num, num+1))
+num = int(input('Digite um nÃºmero: '))
+print('O Antecessor de {} Ã© {}'.format(num, num-1))
+print('O Sucessor de {} Ã© {}'.format(num, num+1))
 
 ##
 #6
-#Crie um algoritmo que leia um número e mostre o seu dobro, triplo e raíz quadrada
+#Crie um algoritmo que leia um nÃºmero e mostre o seu dobro, triplo e raÃ­z quadrada
 
 import math
 
-num = int(input('Digite um número: '))
-print('A raiz de {} é {:.2f}'.format(num, math.sqrt(num)))
-print('O dobro de {} é {}'.format(num, 2*num))
-print('O triplo de {} é {}'.format(num, 3*num))
+num = int(input('Digite um nÃºmero: '))
+print('A raiz de {} Ã© {:.2f}'.format(num, math.sqrt(num)))
+print('O dobro de {} Ã© {}'.format(num, 2*num))
+print('O triplo de {} Ã© {}'.format(num, 3*num))
 
 ##
 #7
-#Desenvolva um programa que leia as duas notas de um aluno, calcule e mostre a sua média
+#Desenvolva um programa que leia as duas notas de um aluno, calcule e mostre a sua mÃ©dia
 
 nota1 = int(input('Digite a primeira nota: '))
 nota2 = int(input('Digite a primeira nota: '))
 soma= nota1 + nota2
-print('A média entre as notas {:.2f} e {:.2f} é de {:.2f}'.format(nota1, nota2, soma/2))
+print('A mÃ©dia entre as notas {:.2f} e {:.2f} Ã© de {:.2f}'.format(nota1, nota2, soma/2))
 
 ##
 #8
-#Escreva um programa que leia um valor em metros e o exiba convertido em centímetros e milímetros
+#Escreva um programa que leia um valor em metros e o exiba convertido em centÃ­metros e milÃ­metros
 
 valor = int(input('Digite a medida:'))
 print('{}cm'.format(valor*100))
@@ -72,9 +63,9 @@ print('{}mm'.format(valor*1000))
 
 ##
 #9
-#Faça um programa que leia um número inteiro qualquer e mostre na tela a sua tabuada
+#FaÃ§a um programa que leia um nÃºmero inteiro qualquer e mostre na tela a sua tabuada
 
-num = int(input('Digite um número: '))
+num = int(input('Digite um nÃºmero: '))
 
 cont = 1
 while cont<=10:
@@ -83,7 +74,7 @@ while cont<=10:
 
 ##
 #10
-#Crie um programa que leia quanto dinheiro uma pessoa tem na carteira e mostre quantos Dólares ela pode comprar
+#Crie um programa que leia quanto dinheiro uma pessoa tem na carteira e mostre quantos DÃ³lares ela pode comprar
 
 dolar = 3.88
 din = float(input('Quanto dinheiro tens? R$'))
@@ -91,7 +82,7 @@ print('Atualmente R${:.2f} equivalem a U${:.2f}'.format(din, din*dolar))
 
 ##
 #11
-#Faça um programa que leia a largura e a altura de uma parede em metros, calcule a sua área e a quantidade de tinta necessária para pintá-la. Sabendo que cada litro de tinta pinta uma área de 2m quadrados.
+#FaÃ§a um programa que leia a largura e a altura de uma parede em metros, calcule a sua Ã¡rea e a quantidade de tinta necessÃ¡ria para pintÃ¡-la. Sabendo que cada litro de tinta pinta uma Ã¡rea de 2m quadrados.
 
 largura = float(input('Digite a largura da parede: '))
 altura = float(input('Digite a altura da parede: '))
@@ -99,62 +90,62 @@ area = largura*altura
 tinta = area/2
 
 print('Uma parede de largura de {} e altura de {} tem {} metros quadrados.'.format(largura, altura, area))
-print('Serão necessários {} litros de tinta para pinta-la.'.format(tinta))
+print('SerÃ£o necessÃ¡rios {} litros de tinta para pinta-la.'.format(tinta))
 
 ##
 #12
-#Faça um algoritmo que leia o preço de um produto e mostre seu novo preço com 5% de desconto
+#FaÃ§a um algoritmo que leia o preÃ§o de um produto e mostre seu novo preÃ§o com 5% de desconto
 
-preco = float(input('Digite o preço do produto: R$'))
-print('Com desconto o preço fica R${:.2f}'.format(preco-preco*0.05))
+preco = float(input('Digite o preÃ§o do produto: R$'))
+print('Com desconto o preÃ§o fica R${:.2f}'.format(preco-preco*0.05))
 
 ##
 #13
-#Faça um algoritmo que leia o salário de um funcionário e mostre seu novo salário, com 15% de aumento
+#FaÃ§a um algoritmo que leia o salÃ¡rio de um funcionÃ¡rio e mostre seu novo salÃ¡rio, com 15% de aumento
 
-salario = float(input('O salário com aumento será de: R$'))
-print('Com desconto o preço fica R${:.2f}'.format(salario+salario*0.15))
+salario = float(input('O salÃ¡rio com aumento serÃ¡ de: R$'))
+print('Com desconto o preÃ§o fica R${:.2f}'.format(salario+salario*0.15))
 
 ##
 #14
-#Faça um programa que leia uma temperatura em Celsius e exiba a correspondente em Fahrenheit
+#FaÃ§a um programa que leia uma temperatura em Celsius e exiba a correspondente em Fahrenheit
 
 celsius = float(input('Digite uma temperatura em Celsius: '))
 fahr = celsius*(9/5)+32
-print('O correspondente em Fahrenheit é {:.0f}'.format(fahr))
+print('O correspondente em Fahrenheit Ã© {:.0f}'.format(fahr))
 
 ##
 #15
-#Escreva um programa que pergunte a quantidade de Km percorridos por um carro alugado e a quantidade de dias pelos quais ele foi alugado. Calcule o preço a pagar, sabendo que o carro custa R$60 por dia e R$0,15 por Km rodado.
+#Escreva um programa que pergunte a quantidade de Km percorridos por um carro alugado e a quantidade de dias pelos quais ele foi alugado. Calcule o preÃ§o a pagar, sabendo que o carro custa R$60 por dia e R$0,15 por Km rodado.
 
 km = float(input('Quantos Km percorridos? '))
 dias = int(input('Quantos dias de uso? '))
 preco = 60*dias+0.15*km
 
-print('O preco final a se pagar por {:.0f}Km percorridos durante {} dias será de R${:.2f}'.format(km, dias, preco))
+print('O preco final a se pagar por {:.0f}Km percorridos durante {} dias serÃ¡ de R${:.2f}'.format(km, dias, preco))
 
 ##
 #16
-#Crie um programa que leia um numero Real qualquer pelo teclado e mostre na tela a sua porção inteira.
+#Crie um programa que leia um numero Real qualquer pelo teclado e mostre na tela a sua porÃ§Ã£o inteira.
 
-num = float(input('Digite um número real: '))
-print('Porção inteira: {}'.format(int(num)))
+num = float(input('Digite um nÃºmero real: '))
+print('PorÃ§Ã£o inteira: {}'.format(int(num)))
 
 ##
 #17
-#Faça um programa que leia o comprimento do cateto oposto e do cateto adjacente de um triângulo retângulo, calcule e mostre o comprimento da hipotenusa
+#FaÃ§a um programa que leia o comprimento do cateto oposto e do cateto adjacente de um triÃ¢ngulo retÃ¢ngulo, calcule e mostre o comprimento da hipotenusa
 
 catop = float(input('Qual comprimento do cateto oposto? '))
 cataj = float(input('Qual comprimento do cateto adjacente? '))
 hip = pow(pow(catop,2) + pow(cataj,2),0.5)
-print('Um triângulo retângulo com catetos de {} e {} tem hipotenusa de {}'.format(catop, cataj, hip))
+print('Um triÃ¢ngulo retÃ¢ngulo com catetos de {} e {} tem hipotenusa de {}'.format(catop, cataj, hip))
 
 ##
 #18
-#Faça um programa que leia um ângulo qualquer e mostre na tela o valor do seno, cosseno e tangente desse ângulo
+#FaÃ§a um programa que leia um Ã¢ngulo qualquer e mostre na tela o valor do seno, cosseno e tangente desse Ã¢ngulo
 
 import math
-angulo = float(input('Digite um ângulo qualquer: '))
+angulo = float(input('Digite um Ã¢ngulo qualquer: '))
 seno = math.sin(angulo)
 cosseno = math.cos(angulo)
 tangente = math.tan(angulo)
@@ -163,7 +154,7 @@ print('Angulo de {}\nCosseno: {}\nSeno: {}\nTangente: {}'.format(angulo, cosseno
 
 ##
 #19
-#Um professor quer sortear um dos seus quatro alunos para apagar o quadro. Faça um programa que ajude ele, lendo o nome deles e escrevendo o nome do escolhido
+#Um professor quer sortear um dos seus quatro alunos para apagar o quadro. FaÃ§a um programa que ajude ele, lendo o nome deles e escrevendo o nome do escolhido
 
 import random
 
@@ -185,7 +176,7 @@ elif(sorteado == 4):
 
 ##
 #20
-#O mesmo professor do desafio anterior quer sortear a ordem de apresentação de trabalho dos alunos. Faça um programa que leia o nome dos quatro alunos e mostre a ordem sorteada
+#O mesmo professor do desafio anterior quer sortear a ordem de apresentaÃ§Ã£o de trabalho dos alunos. FaÃ§a um programa que leia o nome dos quatro alunos e mostre a ordem sorteada
 
 import random
 
@@ -197,14 +188,14 @@ while cont<5:
     cont = cont+1
 
 random.shuffle(lista)
-print('Ordem de apresentação sorteada {}'.format(lista))
+print('Ordem de apresentaÃ§Ã£o sorteada {}'.format(lista))
 
 ##
 #21
 #Crie um programa que leia o nome completo de uma pessoa e mostre:
-# (1) O nome com todas as letras maiúsculas;
-# (2) O nome com todas as letras minúsculas;
-# (3) Quantas letras ao todo (sem considerar espaços);
+# (1) O nome com todas as letras maiÃºsculas;
+# (2) O nome com todas as letras minÃºsculas;
+# (3) Quantas letras ao todo (sem considerar espaÃ§os);
 # (4) Quantas letras tem o primeiro nome.
 
 nome = input('Digite seu nome completo: ')
@@ -215,11 +206,11 @@ print('(4): {}'.format(len(nome.split()[0])))
 
 ##
 #22
-#Faça um programa que leia um número de 0 a 9999 e mostre na tela cada um dos dígitos separadores.
+#FaÃ§a um programa que leia um nÃºmero de 0 a 9999 e mostre na tela cada um dos dÃ­gitos separadores.
 
-num = input('Digite um número qualquer: ')
+num = input('Digite um nÃºmero qualquer: ')
 if len(num)!=4:
-    print('Digite um número com 4 algarismos.')
+    print('Digite um nÃºmero com 4 algarismos.')
 else:
     print('Digito dos milhares: {}'.format(num[0]))
     print('Digito das centenas: {}'.format(num[1]))
@@ -228,13 +219,13 @@ else:
 
 ##
 #23
-#Crie um programa que leia o nome de uma cidade e diga se ela começa ou não com o nome "SANTO"
+#Crie um programa que leia o nome de uma cidade e diga se ela comeÃ§a ou nÃ£o com o nome "SANTO"
 
 cidade = input('Digite o nome de uma cidade: ').upper()
 if cidade.split()[0] == 'SANTO':
-    print('O nome da cidade de {} começa com SANTO.'.format(cidade))
+    print('O nome da cidade de {} comeÃ§a com SANTO.'.format(cidade))
 else:
-    print('O nome da cidade de {} não começa com SANTO.'.format(cidade))
+    print('O nome da cidade de {} nÃ£o comeÃ§a com SANTO.'.format(cidade))
 
 ##
 #24
@@ -250,31 +241,31 @@ while(cont>0):
 if flag==1:
     print('Seu nome possui Silva.')
 else:
-    print('Seu nome não possui Silva.')
+    print('Seu nome nÃ£o possui Silva.')
 
 ##
 #25
-#Faça um programa que leia uma frases pelo teclado e mostre:
+#FaÃ§a um programa que leia uma frases pelo teclado e mostre:
 #(1) Quantas vezes aparece a palavra "A";
-#(2) Em que posição ela aparece a primeira vez;
-#(3) Em que posição ela aparece a última vez.
+#(2) Em que posiÃ§Ã£o ela aparece a primeira vez;
+#(3) Em que posiÃ§Ã£o ela aparece a Ãºltima vez.
 
 frase = input('Digite uma frase qualquer: ').upper()
 print('A palavra "A" aparece {} vezes.'.format(frase.count('A')))
-print('A palavra "A" aparece pela primeira vez na posição {}'.format(frase.find('A')+1))
-print('A palavra "A" aparece pela ultima vez na posição {}'.format(frase.rfind('A')+1))
+print('A palavra "A" aparece pela primeira vez na posiÃ§Ã£o {}'.format(frase.find('A')+1))
+print('A palavra "A" aparece pela ultima vez na posiÃ§Ã£o {}'.format(frase.rfind('A')+1))
 
 ##
 #26
-#Faça um programa que leia o nome completo de uma pessoa, mostrando em seguida o primeiro e o último nome separadamente.
+#FaÃ§a um programa que leia o nome completo de uma pessoa, mostrando em seguida o primeiro e o Ãºltimo nome separadamente.
 
 nome = input('Digite seu nome completo: ').split()
-print('O primeiro nome é {}'.format(nome[0]))
-print('O último nome é {}'.format(nome[len(nome)-1]))
+print('O primeiro nome Ã© {}'.format(nome[0]))
+print('O Ãºltimo nome Ã© {}'.format(nome[len(nome)-1]))
 
 ##
 #27
-#Escreva um programa que faça o computador "pensar" em um número inteiro entre 0 e 5 e peça para o usuário tentar descobrir qual foi o número escolhido pelo computador. O programa deverá escrever na tela se o usuário venceu ou perdeu.
+#Escreva um programa que faÃ§a o computador "pensar" em um nÃºmero inteiro entre 0 e 5 e peÃ§a para o usuÃ¡rio tentar descobrir qual foi o nÃºmero escolhido pelo computador. O programa deverÃ¡ escrever na tela se o usuÃ¡rio venceu ou perdeu.
 
 import random
 
@@ -282,50 +273,50 @@ num = random.randint(0,5)
 palpite = int(input('De um palpite (entre 0 e 5): '))
 if palpite != num:
     while palpite != num:
-        palpite = int(input('Você errou o palpite. Tente denovo! '))
-    print('Você acertou o palpite {}'.format(palpite))
+        palpite = int(input('VocÃª errou o palpite. Tente denovo! '))
+    print('VocÃª acertou o palpite {}'.format(palpite))
 else:
-    print('Você acertou o palpite {}'.format(palpite))
+    print('VocÃª acertou o palpite {}'.format(palpite))
 
 ##
 #28
 #Escreva um programa que leia a velocidade de um carro. Se ele ultrapassar 80Km/h, mostre uma mensagem dizendo que ele foi multado. A multa vai custar R$7,00 por cada Km acima do limite.
 
-velocidade = float(input('Qual é a velocidade do carro? '))
+velocidade = float(input('Qual Ã© a velocidade do carro? '))
 if velocidade > 80:
-    print('Você foi multado! Preço de R${:.2f}'.format((velocidade-80)*7))
+    print('VocÃª foi multado! PreÃ§o de R${:.2f}'.format((velocidade-80)*7))
 else:
     print('VRUMMMMMM')
 
 ##
 #29
-#Desenvolva um programa que pergunte a distância de uma viagem em Km. Calcule o preço da passagem, cobrando R$0,50 por Km para viagens de até 200Km e R$0,45 para viagens mais longas
+#Desenvolva um programa que pergunte a distÃ¢ncia de uma viagem em Km. Calcule o preÃ§o da passagem, cobrando R$0,50 por Km para viagens de atÃ© 200Km e R$0,45 para viagens mais longas
 
-distancia = float(input('Qual a distância percorrida? '))
+distancia = float(input('Qual a distÃ¢ncia percorrida? '))
 if distancia <= 200:
     preco = 0.5*distancia
 else:
     preco = 0.45*distancia
 
-print('No total, a viagem com distância percorrida de {:.0f}Km terá um custo de R${:.2f}'.format(distancia, preco))
+print('No total, a viagem com distÃ¢ncia percorrida de {:.0f}Km terÃ¡ um custo de R${:.2f}'.format(distancia, preco))
 
 ##
 #30
-#Faça um programa que leia um ano qualquer e mostre se ele é Bissexto
+#FaÃ§a um programa que leia um ano qualquer e mostre se ele Ã© Bissexto
 
 ano = int(input('Digite o ano: '))
 if ano%4 == 0 and ano%100 != 0 or ano%400 == 0:
-    print('Ano é bissexto.')
+    print('Ano Ã© bissexto.')
 else:
-    print('Não é bissexto.')
+    print('NÃ£o Ã© bissexto.')
 
 ##
 #31
-#Faça um programa que leia três números e mostre qual é o maior e qual é o menor
+#FaÃ§a um programa que leia trÃªs nÃºmeros e mostre qual Ã© o maior e qual Ã© o menor
 
-num1 = int(input('Digite o primeiro número: '))
-num2 = int(input('Digite o segundo número: '))
-num3 = int(input('Digite o terceiro número: '))
+num1 = int(input('Digite o primeiro nÃºmero: '))
+num2 = int(input('Digite o segundo nÃºmero: '))
+num3 = int(input('Digite o terceiro nÃºmero: '))
 
 if num1>=num2 and num1>=num3:
     maior = num1
@@ -346,24 +337,24 @@ elif num3>=num1 and num3>=num2:
     else:
         menor = num2
 
-print('Maior número digitado: {}'.format(maior))
-print('Menor número digitado: {}'.format(menor))
+print('Maior nÃºmero digitado: {}'.format(maior))
+print('Menor nÃºmero digitado: {}'.format(menor))
 
 ##
 #32
-#Escreva um programa que pergunte o salário de um funcionário e calcule o valor de seu aumento. Para salários superiores a R$1.250,00, calcule um aumento de 10%. Para os inferiores ou iguais, o aumento é de 15%.
+#Escreva um programa que pergunte o salÃ¡rio de um funcionÃ¡rio e calcule o valor de seu aumento. Para salÃ¡rios superiores a R$1.250,00, calcule um aumento de 10%. Para os inferiores ou iguais, o aumento Ã© de 15%.
 
-salario = float(input('Digite o salário do funcionário: R$'))
+salario = float(input('Digite o salÃ¡rio do funcionÃ¡rio: R$'))
 if salario > 1250:
     aumento = 0.1
 else:
     aumento = 0.15
 
-print('Após receber aumento, o funcionário de salário R${:.2f} passará a ganhar R${:.2f}'.format(salario, salario+salario*aumento))
+print('ApÃ³s receber aumento, o funcionÃ¡rio de salÃ¡rio R${:.2f} passarÃ¡ a ganhar R${:.2f}'.format(salario, salario+salario*aumento))
 
 ##
 #33
-#Desenvolva um programa que leia o comprimento de três retas e diga ao usuário se eles podem ou não formar um triângulo.
+#Desenvolva um programa que leia o comprimento de trÃªs retas e diga ao usuÃ¡rio se eles podem ou nÃ£o formar um triÃ¢ngulo.
 
 reta1 = int(input('Digite o comprimento do primeiro lado: '))
 reta2 = int(input('Digite o comprimento do segundo lado: '))
@@ -378,69 +369,69 @@ elif (abs(reta1-reta2))<reta3 and reta3<(reta1+reta2):
     flagTriangulo = 1
 
 if flagTriangulo == 1:
-    print('Lados {} e {} e {} formam um Triângulo.'.format(reta1, reta2, reta3))
+    print('Lados {} e {} e {} formam um TriÃ¢ngulo.'.format(reta1, reta2, reta3))
 else:
-    print('Lados {} e {} e {} não formam um Triângulo.'.format(reta1, reta2, reta3))
+    print('Lados {} e {} e {} nÃ£o formam um TriÃ¢ngulo.'.format(reta1, reta2, reta3))
 
 ##
 #34
-#Escreva um programa para aprovar o empréstimo bancário para a compra de uma casa. O programa vai perguntar o valor da casa, o salário do comprador e em quantos anos ele vai pagar.
-#Calcule o valor da prestação mensal, sabendo que ela não pode exceder 30% do salário ou então o empréstimo será negado.
+#Escreva um programa para aprovar o emprÃ©stimo bancÃ¡rio para a compra de uma casa. O programa vai perguntar o valor da casa, o salÃ¡rio do comprador e em quantos anos ele vai pagar.
+#Calcule o valor da prestaÃ§Ã£o mensal, sabendo que ela nÃ£o pode exceder 30% do salÃ¡rio ou entÃ£o o emprÃ©stimo serÃ¡ negado.
 
 valorTotalCasa = float(input('Digite o valor Total da Casa: R$'))
-salarioComprador = float(input('Digite o Salário do Comprador: R$'))
-parcelaAnos = int(input('Digite em quantos anos será pago: '))
+salarioComprador = float(input('Digite o SalÃ¡rio do Comprador: R$'))
+parcelaAnos = int(input('Digite em quantos anos serÃ¡ pago: '))
 
 prestacao = valorTotalCasa/(parcelaAnos*12)
 
 if prestacao>(0.3*salarioComprador):
-    print('Empréstimo Negado!')
+    print('EmprÃ©stimo Negado!')
 else:
-    print('Empréstimo Aprovado! Prestação de R${:.2f} a ser paga durante {} anos.'.format(prestacao, parcelaAnos))
+    print('EmprÃ©stimo Aprovado! PrestaÃ§Ã£o de R${:.2f} a ser paga durante {} anos.'.format(prestacao, parcelaAnos))
 
 ##
 #35
-#Escreva um programa que leia um número inteiro qualquer e peça para o usuário escolher qual será a base de conversão:
-#1 para binário
+#Escreva um programa que leia um nÃºmero inteiro qualquer e peÃ§a para o usuÃ¡rio escolher qual serÃ¡ a base de conversÃ£o:
+#1 para binÃ¡rio
 #2 para octal
 #3 para hexadecimal
 
-num = int(input('Digite um número qualquer: '))
-base = int(input('Digite a Base de Conversão:\n 1 para Binário\n 2 para Octal\n 3 para Hexadecimal\nBase escolhida: '))
+num = int(input('Digite um nÃºmero qualquer: '))
+base = int(input('Digite a Base de ConversÃ£o:\n 1 para BinÃ¡rio\n 2 para Octal\n 3 para Hexadecimal\nBase escolhida: '))
 
 if base==1:
-    print('Em Binário o número {} equivale a {}'.format(num, bin(num)[2:]))
+    print('Em BinÃ¡rio o nÃºmero {} equivale a {}'.format(num, bin(num)[2:]))
 elif base==2:
-    print('Em Octal o número {} equivale a {}'.format(num, oct(num)[2:]))
+    print('Em Octal o nÃºmero {} equivale a {}'.format(num, oct(num)[2:]))
 elif base==3:
-    print('Em Hexadecimal o número {} equivale a {}'.format(num, hex(num)[2:].upper()))
+    print('Em Hexadecimal o nÃºmero {} equivale a {}'.format(num, hex(num)[2:].upper()))
 else:
-    print('Valor inválido.')
+    print('Valor invÃ¡lido.')
 
 ##
 #36
-#Escreva um programa que leia dois números inteiros e compare-os, mostrando na tela a mensagem:
-#O primeiro valor é maior
-#O segundo valor é maior
-#Não existe valor maior, os dois são iguais
+#Escreva um programa que leia dois nÃºmeros inteiros e compare-os, mostrando na tela a mensagem:
+#O primeiro valor Ã© maior
+#O segundo valor Ã© maior
+#NÃ£o existe valor maior, os dois sÃ£o iguais
 
-num1 = int(input('Digite o primeiro número: '))
-num2 = int(input('Digite o segundo número: '))
+num1 = int(input('Digite o primeiro nÃºmero: '))
+num2 = int(input('Digite o segundo nÃºmero: '))
 
 if num1>num2:
-    print('O primeiro valor é maior')
+    print('O primeiro valor Ã© maior')
 elif num2>num1:
-    print('O segundo valor é maior')
+    print('O segundo valor Ã© maior')
 else:
-    print('Não existe valor maior, os dois são iguais')
+    print('NÃ£o existe valor maior, os dois sÃ£o iguais')
 
 ##
 #37
-#Faça um programa que leia o ano de nascimento de um jovem e informe, de acordo com sua idade:
-#Se ele vai se alistar ao serviço militar.
-#Se é a hora de se alistar
-#Se já passou do tempo de alistamento
-#Seu programa também deverá mostrar o tempo que falta ou que passou do prazo.
+#FaÃ§a um programa que leia o ano de nascimento de um jovem e informe, de acordo com sua idade:
+#Se ele vai se alistar ao serviÃ§o militar.
+#Se Ã© a hora de se alistar
+#Se jÃ¡ passou do tempo de alistamento
+#Seu programa tambÃ©m deverÃ¡ mostrar o tempo que falta ou que passou do prazo.
 
 import datetime
 
@@ -449,18 +440,18 @@ agora = datetime.datetime.now()
 idade = agora.year-anoNascimento
 
 if idade == 18:
-    print('É hora de se alistar!')
+    print('Ã‰ hora de se alistar!')
 elif idade < 18:
-    print('Você deverá se alistar em {} anos'.format(18-idade))
+    print('VocÃª deverÃ¡ se alistar em {} anos'.format(18-idade))
 else:
-    print('Já passou da hora de se alistar! Você está atrasado em {} anos'.format(idade-18))
+    print('JÃ¡ passou da hora de se alistar! VocÃª estÃ¡ atrasado em {} anos'.format(idade-18))
 
 ##
 #38
-#Crie um programa que leia duas notas de um aluno e calcule sua média, mostrando uma mensagem no final, de acordo com a média atingida:
-#Média abaixo de 5.0: REPROVADO
-#Média entre 5.0 e 6.9: RECUPERAÇÃO
-#Média 7.0 ou superior: APROVADO
+#Crie um programa que leia duas notas de um aluno e calcule sua mÃ©dia, mostrando uma mensagem no final, de acordo com a mÃ©dia atingida:
+#MÃ©dia abaixo de 5.0: REPROVADO
+#MÃ©dia entre 5.0 e 6.9: RECUPERAÃ‡ÃƒO
+#MÃ©dia 7.0 ou superior: APROVADO
 
 import math
 
@@ -469,19 +460,19 @@ nota2 = float(input('Digite a segunda nota: '))
 media = (nota1+nota2)/2
 
 if media<5:
-    print('Sua média foi de {:.1f} Ta Reprovado!'.format(media))
+    print('Sua mÃ©dia foi de {:.1f} Ta Reprovado!'.format(media))
 elif media>=5 and media<6.9:
-    print('Sua média foi de {:.1f} Ta de Recuperação!'.format(media))
+    print('Sua mÃ©dia foi de {:.1f} Ta de RecuperaÃ§Ã£o!'.format(media))
 else:
-    print('Sua média foi de {:.1f} Ta Aprovado!'.format(media))
+    print('Sua mÃ©dia foi de {:.1f} Ta Aprovado!'.format(media))
 
 ##
 #39
-#A Confederação Nacional de Natação precisa de um programa que leia o ano de nascimento de um atleta e mostre sua categoria, de acordo com a idade;
-#Até 9 anos: MIRIM
-#Até 14 anos: INFANTIL
-#Até 19 anos: JUNIOR
-#Até 20 anos: SÊNIOR
+#A ConfederaÃ§Ã£o Nacional de NataÃ§Ã£o precisa de um programa que leia o ano de nascimento de um atleta e mostre sua categoria, de acordo com a idade;
+#AtÃ© 9 anos: MIRIM
+#AtÃ© 14 anos: INFANTIL
+#AtÃ© 19 anos: JUNIOR
+#AtÃ© 20 anos: SÃŠNIOR
 #Acima: MASTER
 
 idade = int(input('Digite a sua idade: '))
@@ -500,9 +491,9 @@ print('Idade do Atleta: {} anos\nCategoria: {}'.format(idade, categoria))
 
 ##
 #40
-#Refaça o desafio 035 dos triângulos, acrescentando o recurso de mostrar que tipo de triângulo será formado:
-#Equilátero: todos os lados iguais
-#Isóceles: dois lados iguais
+#RefaÃ§a o desafio 035 dos triÃ¢ngulos, acrescentando o recurso de mostrar que tipo de triÃ¢ngulo serÃ¡ formado:
+#EquilÃ¡tero: todos os lados iguais
+#IsÃ³celes: dois lados iguais
 #Escaleno: todos os lados diferentes
 
 reta1 = int(input('Digite o comprimento do primeiro lado: '))
@@ -519,23 +510,23 @@ elif (abs(reta1-reta2))<reta3 and reta3<(reta1+reta2):
 
 if flagTriangulo == 1:
     if reta1 == reta2 == reta3:
-        print('Lados {} e {} e {} formam um Triângulo Equilátero.'.format(reta1, reta2, reta3))
+        print('Lados {} e {} e {} formam um TriÃ¢ngulo EquilÃ¡tero.'.format(reta1, reta2, reta3))
     elif (reta1 == reta2 and reta1 != reta3) or (reta2 == reta3 and reta2 != reta1) or (reta1 == reta3 and reta1 != reta2):
-        print('Lados {} e {} e {} formam um Triângulo Isóceles.'.format(reta1, reta2, reta3))
+        print('Lados {} e {} e {} formam um TriÃ¢ngulo IsÃ³celes.'.format(reta1, reta2, reta3))
     elif reta1 != reta2 != reta3:
-        print('Lados {} e {} e {} formam um Triângulo Escaleno.'.format(reta1, reta2, reta3))
+        print('Lados {} e {} e {} formam um TriÃ¢ngulo Escaleno.'.format(reta1, reta2, reta3))
 else:
-    print('Lados {} e {} e {} não formam um Triângulo.'.format(reta1, reta2, reta3))
+    print('Lados {} e {} e {} nÃ£o formam um TriÃ¢ngulo.'.format(reta1, reta2, reta3))
 
 
 ##
 #41
-#Desenvolva uma lógica que leia o peso e a altura de uma pessoa, calcule seu IMC e mostre seu status, de acordo com a tabela abaixo:
+#Desenvolva uma lÃ³gica que leia o peso e a altura de uma pessoa, calcule seu IMC e mostre seu status, de acordo com a tabela abaixo:
 #Abaixo de 18.5: Abaixo do Peso
 #Entre 18.5 e 25: Peso ideal
-#25 até 30: Sobrepeso
-#30 até 40: Obesidade
-#Acima de 40: Obesidade mórbida
+#25 atÃ© 30: Sobrepeso
+#30 atÃ© 40: Obesidade
+#Acima de 40: Obesidade mÃ³rbida
 
 peso = float(input('Digite o seu peso: '))
 altura = float(input('Digite a sua altura: '))
@@ -551,22 +542,22 @@ elif imc < 30:
 elif imc < 40:
     print('Obesidade.')
 else:
-    print('Obesidade Mórbida.')
+    print('Obesidade MÃ³rbida.')
 
 ##
 #42
-#Elabore um programa que calcule o valor a ser pago por um produto, considerando o seu preço normal e condição de pagamento:
-#à vista dinheiro/cheque: 10% de desconto
-#à vista no cartão: 5% de desconto
-#em até 2x no cartão: preço normal
-#3x ou mais no cartão: 20% de juros
+#Elabore um programa que calcule o valor a ser pago por um produto, considerando o seu preÃ§o normal e condiÃ§Ã£o de pagamento:
+#Ã  vista dinheiro/cheque: 10% de desconto
+#Ã  vista no cartÃ£o: 5% de desconto
+#em atÃ© 2x no cartÃ£o: preÃ§o normal
+#3x ou mais no cartÃ£o: 20% de juros
 
-precoInicial = float(input('Digite o preço do produto: R$'))
-cond = int(input('Opções: \n[1] à vista dinheiro/cheque\n'
-                        '[2] à vista no cartão\n'
-                            '[3] em até 2x no cartão\n'
-                                '[4] 3x ou mais no cartão\n'
-                                    'Condição: '))
+precoInicial = float(input('Digite o preÃ§o do produto: R$'))
+cond = int(input('OpÃ§Ãµes: \n[1] Ã  vista dinheiro/cheque\n'
+                        '[2] Ã  vista no cartÃ£o\n'
+                            '[3] em atÃ© 2x no cartÃ£o\n'
+                                '[4] 3x ou mais no cartÃ£o\n'
+                                    'CondiÃ§Ã£o: '))
 if cond == 1:
     precoFinal = precoInicial-precoInicial*0.1
 elif cond == 2:
@@ -576,11 +567,11 @@ elif cond == 4:
 else:
     precoFinal = precoInicial
 
-print('Condição de Pagamento: {}\nPreço do Produto: R${:.2f} \nPreço Final: R${:.2f}'.format(cond, precoInicial, precoFinal))
+print('CondiÃ§Ã£o de Pagamento: {}\nPreÃ§o do Produto: R${:.2f} \nPreÃ§o Final: R${:.2f}'.format(cond, precoInicial, precoFinal))
 
 ##
 #43
-#Crie um programa que faça o computador jogar Jokenpô com você
+#Crie um programa que faÃ§a o computador jogar JokenpÃ´ com vocÃª
 
 import random
 
@@ -590,21 +581,21 @@ opcao = int(input('\n[1] Pedra \n[2] Papel \n[3] Tesoura \nSua jogada: '))
 if oponente == opcao:
     print('Empatou!')
 elif opcao == 1 and oponente == 2:
-    print('Perdeu!  Você jogou Pedra e seu oponente jogou Papel')
+    print('Perdeu!  VocÃª jogou Pedra e seu oponente jogou Papel')
 elif opcao == 1 and oponente == 3:
-    print('Perdeu! Você jogou Pedra e seu oponente jogou Tesoura')
+    print('Perdeu! VocÃª jogou Pedra e seu oponente jogou Tesoura')
 elif opcao == 2 and oponente == 1:
-    print('Ganhou! Você jogou Papel e seu oponente jogou Pedra')
+    print('Ganhou! VocÃª jogou Papel e seu oponente jogou Pedra')
 elif opcao == 2 and oponente == 3:
-    print('Perdeu! Você jogou Papel e seu oponente jogou Tesoura')
+    print('Perdeu! VocÃª jogou Papel e seu oponente jogou Tesoura')
 elif opcao == 3 and oponente == 1:
-    print('Perdeu! Você jogou Tesoura e seu oponente jogou Pedra')
+    print('Perdeu! VocÃª jogou Tesoura e seu oponente jogou Pedra')
 elif opcao == 3 and oponente == 2:
-    print('Ganhou! Você jogou Tesoura e seu oponente jogou Papel')
+    print('Ganhou! VocÃª jogou Tesoura e seu oponente jogou Papel')
 
 ##
 #44
-#Faça um programa que mostre na tela uma contagem regressiva para o estouro de fogos de artifício, indo de 10 até 0, com pausa de 1 segundo entre eles;
+#FaÃ§a um programa que mostre na tela uma contagem regressiva para o estouro de fogos de artifÃ­cio, indo de 10 atÃ© 0, com pausa de 1 segundo entre eles;
 
 import os
 from time import sleep
@@ -619,7 +610,7 @@ print('BOOOM')
 
 ##
 #45
-#Crie um programa que mostre na tela todos os números pares que estão no intervalo entre 1 e 50
+#Crie um programa que mostre na tela todos os nÃºmeros pares que estÃ£o no intervalo entre 1 e 50
 
 cont = 1
 while cont<=50:
@@ -629,7 +620,7 @@ while cont<=50:
 
 ##
 #46
-#Faça um programa que calcule a soma entre todos os números ímpares que são múltiplos de três e que se encontram no intervalo de 1 até 500.
+#FaÃ§a um programa que calcule a soma entre todos os nÃºmeros Ã­mpares que sÃ£o mÃºltiplos de trÃªs e que se encontram no intervalo de 1 atÃ© 500.
 
 soma = 0
 for x in range(501):
@@ -639,31 +630,31 @@ print(soma)
 
 ##
 #47
-#Refaça o exercício DESAFIO 8, mostrando a tabuada de um número que o usuário escolher, só que agora utilizando um laço FOR;
+#RefaÃ§a o exercÃ­cio DESAFIO 8, mostrando a tabuada de um nÃºmero que o usuÃ¡rio escolher, sÃ³ que agora utilizando um laÃ§o FOR;
 
-num = int(input('Escolha um número: '))
+num = int(input('Escolha um nÃºmero: '))
 
 for i in range (1,11):
     print('{} x {} = {}'.format(num, i, num*i))
 
 ##
 #48
-#Desenvolva um programa que leia seis números inteiros e mostre a soma apenas daqueles que foram pares. Se o valor digitado for ímpar, desconsidere-o.
+#Desenvolva um programa que leia seis nÃºmeros inteiros e mostre a soma apenas daqueles que foram pares. Se o valor digitado for Ã­mpar, desconsidere-o.
 
 soma = 0
 for i in range(6):
-    num = int(input('Digite um número qualquer: '))
+    num = int(input('Digite um nÃºmero qualquer: '))
     if num%2==0:
         soma = soma + num
-print('A soma dos números digitados será de {}'.format(soma))
+print('A soma dos nÃºmeros digitados serÃ¡ de {}'.format(soma))
 
 ##
 #49
-#Desenvolva um programa que leia o primeiro termo e a razão de uma PA. No final, mostre os 10 primeiros termos dessa progressão.
+#Desenvolva um programa que leia o primeiro termo e a razÃ£o de uma PA. No final, mostre os 10 primeiros termos dessa progressÃ£o.
 
 n = 0
-primeiroTermo = int(input('Digite o primeiro termo da Progressão: '))
-razao = int(input('Digite a razão da Progressão: '))
+primeiroTermo = int(input('Digite o primeiro termo da ProgressÃ£o: '))
+razao = int(input('Digite a razÃ£o da ProgressÃ£o: '))
 
 for i in range(10):
     a = primeiroTermo + i * razao
@@ -671,7 +662,7 @@ for i in range(10):
 
 ##
 #50
-#Faça um programa que diga quantos números primos existem até 1.000
+#FaÃ§a um programa que diga quantos nÃºmeros primos existem atÃ© 1.000
 
 cont = 0
 contaPrimos = 0
@@ -689,7 +680,7 @@ print(contaPrimos)
 
 ##
 #51
-#Crie um programa que leia um frase qualquer e diga se ela é um palíndromo, desconsiderando os espaços;
+#Crie um programa que leia um frase qualquer e diga se ela Ã© um palÃ­ndromo, desconsiderando os espaÃ§os;
 
 import math
 flagPalindromo = False
@@ -701,26 +692,26 @@ for x in frase:
         flagPalindromo = True
     if cont==math.ceil(len(frase)/2):
         break
-print('A Frase digitada "{}" é um Palíndromo? {}'.format(frase, flagPalindromo))
+print('A Frase digitada "{}" Ã© um PalÃ­ndromo? {}'.format(frase, flagPalindromo))
 
 ##
 #52
-#Crie um programa que leia o ano de nascimento de sete pessoas. No final, mostre quantas pessoas ainda não atingiram a maioridade, e quantas já são maiores.
+#Crie um programa que leia o ano de nascimento de sete pessoas. No final, mostre quantas pessoas ainda nÃ£o atingiram a maioridade, e quantas jÃ¡ sÃ£o maiores.
 
 import datetime
 now = datetime.datetime.now().year
 maiores = 0
 
 for i in range(0,7):
-    ano = int(input('Digite o ano de nascimento do cidadão: '))
+    ano = int(input('Digite o ano de nascimento do cidadÃ£o: '))
     if now-ano<18:
         maiores = maiores + 1
 
-print('Dos sete anos de nascimento digitados, {} pessoas já atingiram a maioridade e {} não atingiram.'.format(maiores, 7-maiores))
+print('Dos sete anos de nascimento digitados, {} pessoas jÃ¡ atingiram a maioridade e {} nÃ£o atingiram.'.format(maiores, 7-maiores))
 
 ##
 #53
-#Faça um programa que leia o peso de cinco pessoas. No final mostre qual foi o maior e o menor peso lidos.
+#FaÃ§a um programa que leia o peso de cinco pessoas. No final mostre qual foi o maior e o menor peso lidos.
 
 maiorPeso = 0
 menorPeso = 999
@@ -738,9 +729,9 @@ print('Menor Peso digitado: {:.2f}Kg'.format(menorPeso))
 ##
 #54
 #Desenvolva um programa que leia nome, idade e sexo de 4 pessoas. No final do programa, mostre:
-#a média de idade do grupo;
-#qual é o nome do homem mais velho;
-#quantas mulheres têm menos de 20 anos.
+#a mÃ©dia de idade do grupo;
+#qual Ã© o nome do homem mais velho;
+#quantas mulheres tÃªm menos de 20 anos.
 
 maisVelho = ''
 idadeMaisVelho = 0
@@ -758,20 +749,20 @@ for i in range(1,5):
     if sexo=='F' and idade < 20:
         mulheresVinte = mulheresVinte + 1
 
-print('A Média de idade do grupo é de {}'.format(soma / 4))
+print('A MÃ©dia de idade do grupo Ã© de {}'.format(soma / 4))
 print('O Homem mais velho se chama {}'.format(maisVelho))
-print('{} mulheres têm menos do que 20 anos.'.format(mulheresVinte))
+print('{} mulheres tÃªm menos do que 20 anos.'.format(mulheresVinte))
 
 ##
 #55
-#Faça um programa que leia o sexo de uma pessoa, mas só aceite os valores M ou F. Caso esteja errado, peça a digitação novamente até ter um valor correto.
+#FaÃ§a um programa que leia o sexo de uma pessoa, mas sÃ³ aceite os valores M ou F. Caso esteja errado, peÃ§a a digitaÃ§Ã£o novamente atÃ© ter um valor correto.
 
 sexo = ''
 lista = ['M', 'F']
 while (sexo not in lista):
     sexo = input('Digite o sexo da pessoa: ').upper()
     if sexo not in lista:
-        print('Opção inválida! Tente denovo.')
+        print('OpÃ§Ã£o invÃ¡lida! Tente denovo.')
     else:
         if sexo == 'F':
             print('Sexo Feminino.')
@@ -780,7 +771,7 @@ while (sexo not in lista):
 
 ##
 #56
-#Melhore o jogo do desafio28 onde o computador vai pensar em um número entre 0 e 10. Só que agora o jogador vai tentar adivinhar até acertar, mostrando no final quantos palpites foram necessários para vencer.
+#Melhore o jogo do desafio28 onde o computador vai pensar em um nÃºmero entre 0 e 10. SÃ³ que agora o jogador vai tentar adivinhar atÃ© acertar, mostrando no final quantos palpites foram necessÃ¡rios para vencer.
 
 import random
 
@@ -788,9 +779,9 @@ sorteado = random.randint(1,10)
 tentativa = 0
 palpite = -1
 while palpite != sorteado:
-    palpite = int(input('Dê seu palpite: '))
+    palpite = int(input('DÃª seu palpite: '))
     tentativa = tentativa + 1
-print('Acertou! O Número sorteado foi {}. Depois de {} tentativas'.format(sorteado, tentativa))
+print('Acertou! O NÃºmero sorteado foi {}. Depois de {} tentativas'.format(sorteado, tentativa))
 
 ##
 #57
@@ -798,61 +789,61 @@ print('Acertou! O Número sorteado foi {}. Depois de {} tentativas'.format(sortea
 # [1] somar
 # [2] multiplicar
 # [3] maior
-# [4] novos números
+# [4] novos nÃºmeros
 # [5] sair do programa
-# Seu programa deverá realizar a operação solicitada em cada caso.
+# Seu programa deverÃ¡ realizar a operaÃ§Ã£o solicitada em cada caso.
 
 loop = 0
 num1 = int(input('Digite o primeiro valor: '))
 num2 = int(input('Digite o segundo valor: '))
-opt = int(input('Digite a sua opção para operação:\n[1] Somar\n[2] Multiplicar\n[3] Maior\n[4] Novos Números\n[5] Sair do Programa'
-                '\nOpção Escolhida: '))
+opt = int(input('Digite a sua opÃ§Ã£o para operaÃ§Ã£o:\n[1] Somar\n[2] Multiplicar\n[3] Maior\n[4] Novos NÃºmeros\n[5] Sair do Programa'
+                '\nOpÃ§Ã£o Escolhida: '))
 if opt not in (1,2,3,4,5):
-    print('Opção inválida.')
+    print('OpÃ§Ã£o invÃ¡lida.')
 while opt != 5:
     loop = loop + 1
     if loop > 1:
         num1 = int(input('Digite o primeiro valor: '))
         num2 = int(input('Digite o segundo valor: '))
-        opt = int(input('Digite a sua opção para operação:\n[1] Somar\n[2] Multiplicar\n[3] Maior\n[4] Novos Números\n[5] Sair do Programa'
-                        '\nOpção Escolhida: '))
+        opt = int(input('Digite a sua opÃ§Ã£o para operaÃ§Ã£o:\n[1] Somar\n[2] Multiplicar\n[3] Maior\n[4] Novos NÃºmeros\n[5] Sair do Programa'
+                        '\nOpÃ§Ã£o Escolhida: '))
     if opt == 1:
-        print('A soma entre {} e {} é {}'.format(num1, num2, num1+num2))
+        print('A soma entre {} e {} Ã© {}'.format(num1, num2, num1+num2))
     elif opt == 2:
-        print('A multiplicação entre {} e {} é {}'.format(num1, num2, num1 * num2))
+        print('A multiplicaÃ§Ã£o entre {} e {} Ã© {}'.format(num1, num2, num1 * num2))
     elif opt == 3:
         if num1 > num2:
-            print('O maior número é {}'.format(num1))
+            print('O maior nÃºmero Ã© {}'.format(num1))
         elif num1 < num2:
-            print('O maior número é {}'.format(num2))
+            print('O maior nÃºmero Ã© {}'.format(num2))
         else:
-            print('Os números são iguais')
+            print('Os nÃºmeros sÃ£o iguais')
     elif opt == 4:
         num1 = int(input('Digite o primeiro valor: '))
         num2 = int(input('Digite o segundo valor: '))
         opt = int(input(
-            'Digite a sua opção para operação:\n[1] Somar\n[2] Multiplicar\n[3] Maior\n[4] Novos Números\n[5] Sair do Programa'
-            '\nOpção Escolhida: '))
+            'Digite a sua opÃ§Ã£o para operaÃ§Ã£o:\n[1] Somar\n[2] Multiplicar\n[3] Maior\n[4] Novos NÃºmeros\n[5] Sair do Programa'
+            '\nOpÃ§Ã£o Escolhida: '))
 print('Programa finalizado!')
 
 ##
 #58
-#Faça um programa que leia um número qualquer e mostre o seu fatorial.
+#FaÃ§a um programa que leia um nÃºmero qualquer e mostre o seu fatorial.
 
-num = int(input('Digite um número qualquer: '))
+num = int(input('Digite um nÃºmero qualquer: '))
 fatorial = num
 
 for i in range(1,num):
     fatorial = fatorial*(num-i)
 
-print('O fatorial de {} é {}'.format(num, fatorial))
+print('O fatorial de {} Ã© {}'.format(num, fatorial))
 
 ##
 #59
-#Refaça o desafio51, lendo o primeiro termo e a razão de uma PA, mostrando os 10 primeiros termos da progrssão usando a estrutura while
+#RefaÃ§a o desafio51, lendo o primeiro termo e a razÃ£o de uma PA, mostrando os 10 primeiros termos da progrssÃ£o usando a estrutura while
 
-primeiroTermo = int(input('Digite o primeiro termo da Progressão: '))
-razao = int(input('Digite a razão da progressão: '))
+primeiroTermo = int(input('Digite o primeiro termo da ProgressÃ£o: '))
+razao = int(input('Digite a razÃ£o da progressÃ£o: '))
 lista =[]
 
 cont = 0
@@ -861,17 +852,17 @@ while cont <= 10:
     primeiroTermo = primeiroTermo+razao
     cont = cont+1
 
-print('A progressao desejada é: ')
+print('A progressao desejada Ã©: ')
 print(lista)
 
 ##
 #60
-#Melhore o desafio61, perguntando para o usuário se ele quer mostrar mais alguns termos. O programa encerra quando ele disser que quer mostar 0 termos.
+#Melhore o desafio61, perguntando para o usuÃ¡rio se ele quer mostrar mais alguns termos. O programa encerra quando ele disser que quer mostar 0 termos.
 
 print('Gerador de PA')
 print('-='*10)
 primeiro = int(input('Primeiro termo: '))
-razao = int(input('Razão da PA: '))
+razao = int(input('RazÃ£o da PA: '))
 termo = primeiro
 cont = 1
 total = 0
@@ -883,22 +874,22 @@ while mais != 0:
         termo += razao
         cont += 1
     print('PAUSA')
-    mais = int(input('Quantos termos você quer mostrar a mais? '))
+    mais = int(input('Quantos termos vocÃª quer mostrar a mais? '))
 print('FIM')
 
 ##
 #61
-#Escreva um programa que leia um número n inteiro qualquer e mostre na tela os n primeiros elementos de uma Sequência de Fibonacci.
+#Escreva um programa que leia um nÃºmero n inteiro qualquer e mostre na tela os n primeiros elementos de uma SequÃªncia de Fibonacci.
 
 ##
 #62
-#Crie um programa que leia vários números inteiros pelo teclado. O programa só vai parar quando o usuário digitar o valor 999, que é a condição de parada. No final, mostre quantos números foram digitados e qual foi a soma entre eles (desconsiderando o flag).
+#Crie um programa que leia vÃ¡rios nÃºmeros inteiros pelo teclado. O programa sÃ³ vai parar quando o usuÃ¡rio digitar o valor 999, que Ã© a condiÃ§Ã£o de parada. No final, mostre quantos nÃºmeros foram digitados e qual foi a soma entre eles (desconsiderando o flag).
 
 lista=[]
 num = 0
 
 while num != 999:
-    num = int(input('Digite o próximo número: '))
+    num = int(input('Digite o prÃ³ximo nÃºmero: '))
     if num != 999:
         lista.append(num)
 
@@ -906,7 +897,7 @@ print(sum(lista))
 
 ##
 #63
-#Crie um programa que leia vários número inteiros pelo teclado. No final da execução, mostre a média entre todos os valores e qual foi a maior e o menor valores lidos. O programa deve perguntar ao usuário se ele quer ou não continuar a digitar valores.
+#Crie um programa que leia vÃ¡rios nÃºmero inteiros pelo teclado. No final da execuÃ§Ã£o, mostre a mÃ©dia entre todos os valores e qual foi a maior e o menor valores lidos. O programa deve perguntar ao usuÃ¡rio se ele quer ou nÃ£o continuar a digitar valores.
 
 import statistics
 
@@ -914,32 +905,32 @@ lista = []
 ind = 's'
 
 while ind != 'N':
-    num = int(input('Digite o próximo Número: '))
+    num = int(input('Digite o prÃ³ximo NÃºmero: '))
     lista.append(num)
     ind = input('Deseja continuar? ').upper()
 
 print('Valores digitados: {}'.format(lista))
-print('A média dos valores digitados é: {}'.format(statistics.mean(lista)))
+print('A mÃ©dia dos valores digitados Ã©: {}'.format(statistics.mean(lista)))
 print('O maior valor digitado foi de {}'.format(max(lista)))
 print('O menor valor digitado foi de {}'.format(min(lista)))
 
 ##
 #64
-#Crie um programa que leia vários números inteiros pelo teclado. O programa só vai parar quando o usuário digitar o valor 999, que é a condição de parada. No final, mostre quantos números foram digitados e qual foi a soma entre eles.
+#Crie um programa que leia vÃ¡rios nÃºmeros inteiros pelo teclado. O programa sÃ³ vai parar quando o usuÃ¡rio digitar o valor 999, que Ã© a condiÃ§Ã£o de parada. No final, mostre quantos nÃºmeros foram digitados e qual foi a soma entre eles.
 
 lista=[]
 num = 0
 
 while num != 999:
-    num = int(input('Digite o próximo número: '))
+    num = int(input('Digite o prÃ³ximo nÃºmero: '))
     if num != 999:
         lista.append(num)
 
-print('A soma dos {} números digitados é de: {}'.format(len(lista), sum(lista)))
+print('A soma dos {} nÃºmeros digitados Ã© de: {}'.format(len(lista), sum(lista)))
 
 ##
 #65
-#Faça um programa que mostre a tabuada de vários números, um de cada vez, para cada valor digitado pelo usuário. O programa será interrompido quando o número solicitado for negativo.
+#FaÃ§a um programa que mostre a tabuada de vÃ¡rios nÃºmeros, um de cada vez, para cada valor digitado pelo usuÃ¡rio. O programa serÃ¡ interrompido quando o nÃºmero solicitado for negativo.
 
 valor = 1
 while valor > 0:
@@ -953,7 +944,7 @@ print('Programa Finalizado.')
 
 ##
 #66
-#Faça um programa que joque par ou ímpar com o computador. O jogo só será interrompido quando o jogador perder, mostrando o total de vitórias consecutivas que ele conquistou no final do jogo.
+#FaÃ§a um programa que joque par ou Ã­mpar com o computador. O jogo sÃ³ serÃ¡ interrompido quando o jogador perder, mostrando o total de vitÃ³rias consecutivas que ele conquistou no final do jogo.
 
 import random
 
@@ -961,21 +952,21 @@ flagPerdedor = 0
 while flagPerdedor != 1:
     jogadaOponente = random.randint(1,11)
     opt = input('Par ou Impar: ').upper()
-    suaJogada = int(input('Qual é a sua jogada? '))
+    suaJogada = int(input('Qual Ã© a sua jogada? '))
     total = jogadaOponente + suaJogada
     if opt == 'PAR' and (total%2==0):
-        print('Você ganhou, por que {} é Par'.format(total))
+        print('VocÃª ganhou, por que {} Ã© Par'.format(total))
     elif opt == 'IMPAR' and (total%2==0):
         flagPerdedor = 1
     elif opt == 'IMPAR' and (total%2!=0):
-        print('Você ganhou, por que {} é Impar'.format(total))
+        print('VocÃª ganhou, por que {} Ã© Impar'.format(total))
     elif opt == 'PAR' and (total%2!=0):
         flagPerdedor = 1
-print('Você perdeu, soma total de {}'.format(total))
+print('VocÃª perdeu, soma total de {}'.format(total))
 
 ##
 #67
-#Crie um programa que leia a idade e o sexo de várias pessoas. A cada pessoa cadastrada, o programa deverá perguntar se o usuário quer ou não continuar. No final mostre:
+#Crie um programa que leia a idade e o sexo de vÃ¡rias pessoas. A cada pessoa cadastrada, o programa deverÃ¡ perguntar se o usuÃ¡rio quer ou nÃ£o continuar. No final mostre:
 #quantas pessoas tem mais de 18 anos
 #quantos homens foram cadastrados
 #quantas mulheres tem menos de 20 anos
@@ -989,7 +980,7 @@ prog = 's'
 while prog != 'N':
     pessoas += 1
     sexo = input('[M] - Masculino\n[F] - Feminino\nSexo: ').upper()
-    idade = int(input('Qual é a idade? '))
+    idade = int(input('Qual Ã© a idade? '))
     if idade > 18:
         maiores += 1
     if sexo=='M':
@@ -1005,10 +996,10 @@ print('Mulheres com menos de 20 anos: {}'.format(mulheresMenosVinte))
 
 ##
 #68
-#Crie um programa que leia o nome e o preço de vários produtos. O programa deverá perguntar se o usuário vai continuar. No final, mostre:
-#qual é o total gasto na compra
+#Crie um programa que leia o nome e o preÃ§o de vÃ¡rios produtos. O programa deverÃ¡ perguntar se o usuÃ¡rio vai continuar. No final, mostre:
+#qual Ã© o total gasto na compra
 #quantos produtos custam mais de R$1000
-#qual é o nome do produto mais barato
+#qual Ã© o nome do produto mais barato
 
 continuar = 's'
 total = 0
@@ -1020,7 +1011,7 @@ quantidade = 0
 while continuar != 'N':
     quantidade += 1
     produto = input('Digite o produto: ')
-    preco = float(input('Qual o preço? R$'))
+    preco = float(input('Qual o preÃ§o? R$'))
     total += preco
     if preco > 1000:
         produtosMaisMil += 1
@@ -1032,47 +1023,47 @@ while continuar != 'N':
 print('Quantidade de produtos cadastrados: {}'.format(quantidade))
 print('Total gasto na compra: R${:.2f}'.format(total))
 print('{} produtos custam acima de R$1.000'.format(produtosMaisMil))
-print('O produto mais barato é o {}'.format(nomeMaisBarato))
+print('O produto mais barato Ã© o {}'.format(nomeMaisBarato))
 
 ##
 #69
-#Crie um programa que simule o funcionamento de um caixa eletrônico. No início, pergunte ao usuário qual será o valor a ser sacado (número inteiro) e o programa vai informar quantas cédulas de cada valor serão entregues.
-#obs: considere que o caixa possui cédulas de R$50, R$20, R$10 e R$1
+#Crie um programa que simule o funcionamento de um caixa eletrÃ´nico. No inÃ­cio, pergunte ao usuÃ¡rio qual serÃ¡ o valor a ser sacado (nÃºmero inteiro) e o programa vai informar quantas cÃ©dulas de cada valor serÃ£o entregues.
+#obs: considere que o caixa possui cÃ©dulas de R$50, R$20, R$10 e R$1
 
 ##
 #70
-#Crie um programa que tenha uma tupla totalmente preenchida com uma contagem por extenso, de zero até vinte. Seu programa deverá ler um número pelo teclado (entre 0 e 20) e mostrá-o por extenso.
+#Crie um programa que tenha uma tupla totalmente preenchida com uma contagem por extenso, de zero atÃ© vinte. Seu programa deverÃ¡ ler um nÃºmero pelo teclado (entre 0 e 20) e mostrÃ¡-o por extenso.
 
-zahlen = ('Null', 'Ein', 'Zwei', 'Drei', 'Vier', 'Funf', 'Sechs', 'Sieben', 'Acht', 'Neun', 'Zehn', 'Elf', 'Zwölf', 'Dreizehn'
+zahlen = ('Null', 'Ein', 'Zwei', 'Drei', 'Vier', 'Funf', 'Sechs', 'Sieben', 'Acht', 'Neun', 'Zehn', 'Elf', 'ZwÃ¶lf', 'Dreizehn'
     , 'Vierzehn', 'Funfzehn', 'Sechzehn', 'Siebenzehn', 'Achtzehn', 'Neunzehn', 'Zwanzig')
 
-nummer = int(input('Geben Sie eine Nummer über die Tastatur ein: '))
+nummer = int(input('Geben Sie eine Nummer Ã¼ber die Tastatur ein: '))
 print('Die Nummer {} ist: {}'.format(nummer, zahlen[nummer]))
 
 ##
 #71
-#Crie uma tupla preenchida com os 20 primeiros colocados da Tabela do Compeonato Brasileiro de Futebol, na ordem de colocação. Depois mostre:
+#Crie uma tupla preenchida com os 20 primeiros colocados da Tabela do Compeonato Brasileiro de Futebol, na ordem de colocaÃ§Ã£o. Depois mostre:
 #a) Apenas os 5 primeiros colocados;
-#b) Os últimos 4 colocados da tabela;
-#c) Uma lista com os times em ordem alfabética;
-#d) Em que posição da tabela está o time da Chapecoense.
+#b) Os Ãºltimos 4 colocados da tabela;
+#c) Uma lista com os times em ordem alfabÃ©tica;
+#d) Em que posiÃ§Ã£o da tabela estÃ¡ o time da Chapecoense.
 
-brasileirao = ('Corinthians', 'Palmeiras', 'Santos', 'Grêmio', 'Cruzeiro', 'Flamengo', 'Vasco', 'Chapecoense', 'Atlético', 'Botafogo'
-    , 'Atletico Paranaense', 'Bahia', 'São Paulo', 'Fluminense', 'Sport', 'Vitória', 'Coritiba', 'Avaí', 'Ponte Preta', 'Atlético Goianiense')
-print('Os 5 primeiros colocados são {}'.format(brasileirao[:5]))
-print('Os 4 últimos colocados são {}'.format(brasileirao[-4:]))
-print('Em ordem alfabética: {}'.format(sorted(brasileirao)))
-print('Chapecoense está em {} lugar.'.format(brasileirao.index('Chapecoense')+1))
+brasileirao = ('Corinthians', 'Palmeiras', 'Santos', 'GrÃªmio', 'Cruzeiro', 'Flamengo', 'Vasco', 'Chapecoense', 'AtlÃ©tico', 'Botafogo'
+    , 'Atletico Paranaense', 'Bahia', 'SÃ£o Paulo', 'Fluminense', 'Sport', 'VitÃ³ria', 'Coritiba', 'AvaÃ­', 'Ponte Preta', 'AtlÃ©tico Goianiense')
+print('Os 5 primeiros colocados sÃ£o {}'.format(brasileirao[:5]))
+print('Os 4 Ãºltimos colocados sÃ£o {}'.format(brasileirao[-4:]))
+print('Em ordem alfabÃ©tica: {}'.format(sorted(brasileirao)))
+print('Chapecoense estÃ¡ em {} lugar.'.format(brasileirao.index('Chapecoense')+1))
 
 
 ##
 #72
-#Crie um programa que vai gerar cinco números aleatórios e colocar em uma tupla; Depois disso, mostre a listagem de números gerados e também indique o menor e o maior valor que estão na tupla.
+#Crie um programa que vai gerar cinco nÃºmeros aleatÃ³rios e colocar em uma tupla; Depois disso, mostre a listagem de nÃºmeros gerados e tambÃ©m indique o menor e o maior valor que estÃ£o na tupla.
 
 import random
 numeros = (random.randint(1, 10), random.randint(1, 10), random.randint(1, 10), random.randint(1, 10), random.randint(1, 10))
 
-print('Listagem de números gerada: {}'.format(numeros))
+print('Listagem de nÃºmeros gerada: {}'.format(numeros))
 print('Maior valor: {}'.format(max(numeros)))
 print('Menor valor: {}'.format(min(numeros)))
 
@@ -1080,28 +1071,28 @@ print('Menor valor: {}'.format(min(numeros)))
 #73
 #Desenvolva um programa que leia quatro valores pelo teclado e guarde-os em uma tupla. No final mostre:
 #a) Quantas vezes apareceu o valor 9
-#b) Em que posição foi digitado o primeiro valor 3
-#c) Quais foram os números pares
+#b) Em que posiÃ§Ã£o foi digitado o primeiro valor 3
+#c) Quais foram os nÃºmeros pares
 
 qtdPares = 0
-numeros = (int(input('Digite um número: ')), int(input('Digite mais um número: ')), int(input('Digite outro número: '))
-           , int(input('Digite mais um número: ')))
-print('O número 9 apareceu {} vezes.'.format(numeros.count(9)))
-print('O primeiro valor de 3 apareceu na posição {}'.format(numeros.index(3)+1))
+numeros = (int(input('Digite um nÃºmero: ')), int(input('Digite mais um nÃºmero: ')), int(input('Digite outro nÃºmero: '))
+           , int(input('Digite mais um nÃºmero: ')))
+print('O nÃºmero 9 apareceu {} vezes.'.format(numeros.count(9)))
+print('O primeiro valor de 3 apareceu na posiÃ§Ã£o {}'.format(numeros.index(3)+1))
 
 for i in range(4):
     if numeros[i]%2==0:
         qtdPares += 1
-print('Foram digitados {} números pares.'.format(qtdPares))
+print('Foram digitados {} nÃºmeros pares.'.format(qtdPares))
 
 ##
 #74
-#Crie um programa que tenha uma tupla única com nomes de produtos e seus respectivos preços, na sequência. No final, mostre uma listagem de preços, organizando os dados em forma tabular.
+#Crie um programa que tenha uma tupla Ãºnica com nomes de produtos e seus respectivos preÃ§os, na sequÃªncia. No final, mostre uma listagem de preÃ§os, organizando os dados em forma tabular.
 
-listaCompras = (('Lápis', 1.75),  ('Borracha', 2),  ('Caderno', 15.90),  ('Estojo', 25),  ('Transferidor', 4.20),  ('Compasso', 9.99)
+listaCompras = (('LÃ¡pis', 1.75),  ('Borracha', 2),  ('Caderno', 15.90),  ('Estojo', 25),  ('Transferidor', 4.20),  ('Compasso', 9.99)
                 ,  ('Mochila', 120.32),  ('Canetas', 22.30),  ('Livro', 34.90))
 print('-'*35)
-print(' '*8+'LISTAGEM DE PREÇOS')
+print(' '*8+'LISTAGEM DE PREÃ‡OS')
 print('-'*35)
 for i in range(len(listaCompras)):
     for n in range(2):
@@ -1113,7 +1104,7 @@ print('-'*35)
 
 ##
 #75
-#Crie um programa que tenha uma tupla com várias palavras (não usar acentos). Depois disso, você deve mostrar, para cada palavra, quais são as suas vogais.
+#Crie um programa que tenha uma tupla com vÃ¡rias palavras (nÃ£o usar acentos). Depois disso, vocÃª deve mostrar, para cada palavra, quais sÃ£o as suas vogais.
 
 tupla = ('cachorro', 'arara', 'mamute', 'alabama', 'cozinha', 'olodum', 'chapado', 'muqueca')
 vogais = ('a', 'e', 'i', 'o', 'u')
@@ -1136,26 +1127,26 @@ for i in range(len(tupla)):
 
 ##
 #76
-#Faça um programa que leia 5 valores numéricos e guarde-os em uma lista. No final, mostre qual foi o maior e o menor valor digitado e as suas respectivas posições na lista.
+#FaÃ§a um programa que leia 5 valores numÃ©ricos e guarde-os em uma lista. No final, mostre qual foi o maior e o menor valor digitado e as suas respectivas posiÃ§Ãµes na lista.
 
 lista = []
 for i in range(5):
     num = int(input('Digite um valor: '))
     lista.append(num)
 
-print('O maior valor digitado foi {} na posição {}'.format(max(lista), lista.index(max(lista))+1))
-print('O menor valor digitado foi {} na posição {}'.format(min(lista), lista.index(min(lista))+1))
+print('O maior valor digitado foi {} na posiÃ§Ã£o {}'.format(max(lista), lista.index(max(lista))+1))
+print('O menor valor digitado foi {} na posiÃ§Ã£o {}'.format(min(lista), lista.index(min(lista))+1))
 
 ##
 #77
-#Crie um programa onde o usuário possa digitar vários valores numéricos e cadastre-os em uma lista. Caso o número já exista lá dentro, ele não será adicionado. No final, serão exibidos todos os valores únicos digitados, em ordem crescente.
+#Crie um programa onde o usuÃ¡rio possa digitar vÃ¡rios valores numÃ©ricos e cadastre-os em uma lista. Caso o nÃºmero jÃ¡ exista lÃ¡ dentro, ele nÃ£o serÃ¡ adicionado. No final, serÃ£o exibidos todos os valores Ãºnicos digitados, em ordem crescente.
 
 num = 999
 lista = []
 opt = 'S'
 
 while opt != 'N':
-    num = int(input('Digite um número: '))
+    num = int(input('Digite um nÃºmero: '))
     if num not in lista:
         lista.append(num)
     opt = input('Deseja continuar? [s/n] ').upper()
@@ -1163,40 +1154,40 @@ print(sorted(lista))
 
 ##
 #78
-#Crie um programa onde o usuário possa digitar cinco valores numéricos e cadastre-os em uma lista, já na posição correta de inserção (sem usar o sort()). No final, mostre a lista ordenada na tela.
+#Crie um programa onde o usuÃ¡rio possa digitar cinco valores numÃ©ricos e cadastre-os em uma lista, jÃ¡ na posiÃ§Ã£o correta de inserÃ§Ã£o (sem usar o sort()). No final, mostre a lista ordenada na tela.
 
 ##
 #79
-#Crie um programa que vai ler vários números e colocar em uma lista. Depois disso mostre:
-#a) Quantos números foram digitados.
+#Crie um programa que vai ler vÃ¡rios nÃºmeros e colocar em uma lista. Depois disso mostre:
+#a) Quantos nÃºmeros foram digitados.
 #b) A lista de valores, ordenada de forma descrescente.
-#c) Se o valor 5 foi digitado e está ou não na lista.
+#c) Se o valor 5 foi digitado e estÃ¡ ou nÃ£o na lista.
 
 lista = []
 opt = 'S'
 
 while opt != 'N':
-    num = int(input('Digite um número: '))
+    num = int(input('Digite um nÃºmero: '))
     lista.append(num)
     opt = input('Deseja continuar? [s/n]').upper()
 
-print('Foram digitados {} números.'.format(len(lista)))
+print('Foram digitados {} nÃºmeros.'.format(len(lista)))
 print('Lista descrescente: {}'.format(sorted(lista, reverse=True)))
 if 5 in lista:
-    print('O valor 5 foi digitado na posição {}'.format(lista.index(5)+1))
+    print('O valor 5 foi digitado na posiÃ§Ã£o {}'.format(lista.index(5)+1))
 else:
-    print('O valor 5 não foi digitado.')
+    print('O valor 5 nÃ£o foi digitado.')
 
 ##
 #80
-#Crie um programa que vai ler vários números e colocar em uma lista. Depois disso, crie duas listas extras que vão conter apenas os valores pares e os valores ímpares digitados, respectivamente. Ao final, mostre o conteúdo das três listas geradas.
+#Crie um programa que vai ler vÃ¡rios nÃºmeros e colocar em uma lista. Depois disso, crie duas listas extras que vÃ£o conter apenas os valores pares e os valores Ã­mpares digitados, respectivamente. Ao final, mostre o conteÃºdo das trÃªs listas geradas.
 
 pares = []
 impares = []
 lista = []
 
 for i in range(10):
-    num = int(input('Digite um número: '))
+    num = int(input('Digite um nÃºmero: '))
     lista.append(num)
     if lista[i]%2==0:
         pares.append(lista[i])
@@ -1208,9 +1199,9 @@ print('Valores impares digitados: {}'.format(impares))
 
 ##
 #81
-#Crie um programa onde o usuário digite uma expressão qualquer que use parênteses. Seu aplicativo deverá analisar se a expressão passada está com os parênteses abertos e fechados na ordem correta.
+#Crie um programa onde o usuÃ¡rio digite uma expressÃ£o qualquer que use parÃªnteses. Seu aplicativo deverÃ¡ analisar se a expressÃ£o passada estÃ¡ com os parÃªnteses abertos e fechados na ordem correta.
 
-expressao = str(input('Digite a expressão: '))
+expressao = str(input('Digite a expressÃ£o: '))
 pilha = []
 for simb in expressao:
     if simb == '(':
@@ -1222,13 +1213,13 @@ for simb in expressao:
             pilha.append(')')
             break
 if len(pilha) == 0:
-    print('Sua expressão está válida!')
+    print('Sua expressÃ£o estÃ¡ vÃ¡lida!')
 else:
-    print('Sua expressão está errada!')
+    print('Sua expressÃ£o estÃ¡ errada!')
 
 ##
 #82
-#Faça um programa que leia nome e peso de várias pessoas, guardando tudo em uma lista. No final, mostre:
+#FaÃ§a um programa que leia nome e peso de vÃ¡rias pessoas, guardando tudo em uma lista. No final, mostre:
 #a) Quantas pessoas foram cadastradas.
 #b) Uma listagem com as pessoas mais pesadas.
 #c) Uma listagem com as pessoas mais leves.
@@ -1265,13 +1256,13 @@ for i in range(len(lista)):
                 nomeMaisPesados.append(lista[i][n-1])
                 maiorPeso = lista[i][n]
 
-print('Ao todo, você cadastrou {} pessoas.'.format(cont))
+print('Ao todo, vocÃª cadastrou {} pessoas.'.format(cont))
 print('O maior peso foi de {}Kg. Peso de {}'.format(maisPesados[len(maisPesados)-1], nomeMaisPesados[len(nomeMaisPesados)-1]))
 print('O menor peso foi de {}Kg. Peso de {}'.format(maisLeves[len(maisLeves)-1], nomeMaisLeves[len(nomeMaisLeves)-1]))
 
 ##
 #83
-#Crie um programa onde o usuário possa digitar sete valores numéricos e cadastre-os em uma lista única que mantenha separados os valores pares e ímpares. No final, mostre os valores pares e ímpares em ordem crescente.
+#Crie um programa onde o usuÃ¡rio possa digitar sete valores numÃ©ricos e cadastre-os em uma lista Ãºnica que mantenha separados os valores pares e Ã­mpares. No final, mostre os valores pares e Ã­mpares em ordem crescente.
 
 listaNumeros = [[], []]
 for n in range(7):
@@ -1288,7 +1279,7 @@ for n in range(7):
     elif n == 5:
         num = int(input('Digite o sexto valor: '))
     elif n == 6:
-        num = int(input('Digite o sétimo valor: '))
+        num = int(input('Digite o sÃ©timo valor: '))
     if num%2==0:
         listaNumeros[0].append(num)
     else:
@@ -1299,13 +1290,13 @@ print('Lista de Valores Impares digitados: {}'.format(sorted(listaNumeros[1])))
 
 ##
 #84
-#Crie um programa que crie uma matriz de dimensão 3x3 e preencha com valores lidos pelo teclado. No final, mostre a matriz na tela, com formatação correta.
+#Crie um programa que crie uma matriz de dimensÃ£o 3x3 e preencha com valores lidos pelo teclado. No final, mostre a matriz na tela, com formataÃ§Ã£o correta.
 
 matriz = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
 for i in range(len(matriz)):
     for n in range(len(matriz[i])):
-        matriz[i][n] = int(input('Digite o valor para a posição: [{}, {}]: '.format(i, n)))
+        matriz[i][n] = int(input('Digite o valor para a posiÃ§Ã£o: [{}, {}]: '.format(i, n)))
 
 print('-='*30)
 for l in range(0,3):
@@ -1325,7 +1316,7 @@ somaPares = 0
 
 for i in range(len(matriz)):
     for n in range(len(matriz[i])):
-        matriz[i][n] = int(input('Digite o valor da posição [{}, {}]: '.format(i, n)))
+        matriz[i][n] = int(input('Digite o valor da posiÃ§Ã£o [{}, {}]: '.format(i, n)))
         if matriz[i][n] % 2 == 0:
             somaPares = somaPares + matriz[i][n]
 
@@ -1335,13 +1326,13 @@ for l in range(3):
     print()
 
 print()
-print('A soma dos valores pares digitados é {}'.format(somaPares))
-print('A soma dos valores da terceira coluna é {}'.format(matriz[0][2] + matriz[1][2] + matriz[2][2]))
-print('O maior valor da segunda linha é: {}'.format(max(matriz[1][0], matriz[1][1], matriz[1][2])))
+print('A soma dos valores pares digitados Ã© {}'.format(somaPares))
+print('A soma dos valores da terceira coluna Ã© {}'.format(matriz[0][2] + matriz[1][2] + matriz[2][2]))
+print('O maior valor da segunda linha Ã©: {}'.format(max(matriz[1][0], matriz[1][1], matriz[1][2])))
 
 ##
 #86
-#Faça um programa que ajude um jogador da Mega Sena a criar palpites. O programa vai perguntar quantos jogos serão gerados e vai sortear 6 números entre 1 e 60 para cada jogo, cadastrando tudo em uma lista.
+#FaÃ§a um programa que ajude um jogador da Mega Sena a criar palpites. O programa vai perguntar quantos jogos serÃ£o gerados e vai sortear 6 nÃºmeros entre 1 e 60 para cada jogo, cadastrando tudo em uma lista.
 
 from random import randint
 from time import sleep
@@ -1351,7 +1342,7 @@ jogos = list()
 print('-'*30)
 print('       JOGA NA MEGA SENA      ')
 print('-'*30)
-quantidade = int(input('Quantos jogos você quer que eu sorteie? '))
+quantidade = int(input('Quantos jogos vocÃª quer que eu sorteie? '))
 tot = 1
 
 while tot <= quantidade:
@@ -1375,7 +1366,7 @@ for i, l in enumerate(jogos):
 
 ##
 #87
-#Crie um programa que leia nome e duas notas de vários alunos e guarde tudo em uma lista composta. No final, mostre um boletim contendo a mé´dia de cada um e permita que o usuário possa mostrar as notas de cada aluno individualmente.
+#Crie um programa que leia nome e duas notas de vÃ¡rios alunos e guarde tudo em uma lista composta. No final, mostre um boletim contendo a mÃ©Â´dia de cada um e permita que o usuÃ¡rio possa mostrar as notas de cada aluno individualmente.
 
 continua = 'a'
 lista = list()
@@ -1390,7 +1381,7 @@ while continua != 'N':
     if continua == 'S':
         listaValores.clear()
 
-print('No.  NOME          MÉDIA')
+print('No.  NOME          MÃ‰DIA')
 print('-'*30)
 for indice, valor in enumerate(lista):
     print(f'{indice}'+' '*4, end='')
@@ -1402,32 +1393,32 @@ while True:
     aluno = int(input('Mostrar notas de qual aluno? (999 interrompe): '))
     if aluno == 999:
         break
-    print('Notas de {} são {}'.format(lista[aluno][0], lista[aluno][1:]))
+    print('Notas de {} sÃ£o {}'.format(lista[aluno][0], lista[aluno][1:]))
     print('-'*45)
 print('-'*45)
 print('FIM')
 
 ##
 #88
-#Faça um programa que leia nome e média de um aluno, guardando tambéma situação em um dicionário. No final, mostre o conteúdo da estrutura na tela.
+#FaÃ§a um programa que leia nome e mÃ©dia de um aluno, guardando tambÃ©ma situaÃ§Ã£o em um dicionÃ¡rio. No final, mostre o conteÃºdo da estrutura na tela.
 
 aluno = dict()
 aluno['nome'] = str(input('Nome: '))
-aluno['média'] = float(input(f'Média de {aluno["nome"]}: '))
-if aluno['média'] >= 7:
-    aluno['situação'] = 'Aprovado'
-elif 5 <= aluno['média'] < 7:
-    aluno['situação'] = 'Recuperação'
+aluno['mÃ©dia'] = float(input(f'MÃ©dia de {aluno["nome"]}: '))
+if aluno['mÃ©dia'] >= 7:
+    aluno['situaÃ§Ã£o'] = 'Aprovado'
+elif 5 <= aluno['mÃ©dia'] < 7:
+    aluno['situaÃ§Ã£o'] = 'RecuperaÃ§Ã£o'
 else:
-    aluno['situação'] = 'Reprovado'
+    aluno['situaÃ§Ã£o'] = 'Reprovado'
 
 print('-='*30)
 for k, v in aluno.items():
-    print(f' - {k} é igual a {v}')
+    print(f' - {k} Ã© igual a {v}')
 
 ##
 #89
-#Crie um programa onde 4 jogadores joguem um dado e tenham resultados aleatórios. Guarde esses resultados em um dicionário. No final, coloque esse dicionário em ordem, sabendo que o vencedor tirou o maior número no dado.
+#Crie um programa onde 4 jogadores joguem um dado e tenham resultados aleatÃ³rios. Guarde esses resultados em um dicionÃ¡rio. No final, coloque esse dicionÃ¡rio em ordem, sabendo que o vencedor tirou o maior nÃºmero no dado.
 
 import random
 import operator
@@ -1446,11 +1437,11 @@ ranking = list()
 ranking = sorted(jogadas.items(), key=operator.itemgetter(1), reverse=True)
 
 for i, v in enumerate(ranking):
-    print(f'{i+1}º lugar: {v[0]} com {v[1]}')
+    print(f'{i+1}Âº lugar: {v[0]} com {v[1]}')
 
 ##
 #90
-#Crie um programa que leia nome, ano de nascimento e carteira de trabalho e cadastre-os (com idade) em um dicionário se por acaso a CTPS for diferente de zero, o dicionário receberá também o ano de contratação e o salário. Calcule e acrescente, além da idade, com quantos anos a pessoa vai se aposentar.
+#Crie um programa que leia nome, ano de nascimento e carteira de trabalho e cadastre-os (com idade) em um dicionÃ¡rio se por acaso a CTPS for diferente de zero, o dicionÃ¡rio receberÃ¡ tambÃ©m o ano de contrataÃ§Ã£o e o salÃ¡rio. Calcule e acrescente, alÃ©m da idade, com quantos anos a pessoa vai se aposentar.
 
 from datetime import datetime
 
@@ -1458,10 +1449,10 @@ dicionario = {}
 
 dicionario['nome'] = str(input('Nome: '))
 dicionario['idade'] = datetime.now().year - int(input('Ano de Nascimento: '))
-dicionario['carteira'] = int(input('Carteira de Trabalho (0 não tem): '))
+dicionario['carteira'] = int(input('Carteira de Trabalho (0 nÃ£o tem): '))
 if dicionario['carteira'] != 0:
-    dicionario['contratacao'] = int(input('Ano de Contratação: '))
-    dicionario['salario'] = int(input('Salário: R$'))
+    dicionario['contratacao'] = int(input('Ano de ContrataÃ§Ã£o: '))
+    dicionario['salario'] = int(input('SalÃ¡rio: R$'))
     dicionario['aposentadoria'] = dicionario['idade'] + ((dicionario['contratacao']+35) - datetime.now().year)
 
 print('-='*40)
@@ -1470,7 +1461,7 @@ for key, value in dicionario.items():
 
 ##
 #91
-#Crie um programa que gerencie o aproveitamento de um jogador de futebol. O programa vai lei o nome do jogador e quantas partidas ele jogou. Depois vai ler a quantidade de gols feitos em cada partida. No final, tudo isso será guardado em um dicionário, incluindo o total de gols feitos durante o compeonato.
+#Crie um programa que gerencie o aproveitamento de um jogador de futebol. O programa vai lei o nome do jogador e quantas partidas ele jogou. Depois vai ler a quantidade de gols feitos em cada partida. No final, tudo isso serÃ¡ guardado em um dicionÃ¡rio, incluindo o total de gols feitos durante o compeonato.
 
 def mostraLinhas():
     print('-='*35)
@@ -1497,11 +1488,11 @@ for i, j in enumerate(desempenho):
 
 ##
 #92
-#Crie um programa que leia nome, sexo e idade de várias pessoas, guardando os dados de cada pessoa em um dicionário e todos os dicionários em uma lista. No final mostre:
+#Crie um programa que leia nome, sexo e idade de vÃ¡rias pessoas, guardando os dados de cada pessoa em um dicionÃ¡rio e todos os dicionÃ¡rios em uma lista. No final mostre:
 #a) quantas pessaos foram cadastradas
-#b) a média de idade do grupo
+#b) a mÃ©dia de idade do grupo
 #c) uma lista com todas as mulheres
-#d) uma lista com todas as pessoas com idade acima da média
+#d) uma lista com todas as pessoas com idade acima da mÃ©dia
 
 continuar = ''
 cont = 0
@@ -1535,21 +1526,21 @@ for n in range(len(lista)):
         acimaMedia.append(lista[n]['nome'])
 
 print('A) Ao todo temos {} pessoas cadastradas'.format(cont))
-print('B) A média de idade é de {} anos.'.format(media))
+print('B) A mÃ©dia de idade Ã© de {} anos.'.format(media))
 print('C) As mulheres cadastradas foram {}'.format(listaMulheres))
-print('D) A lista de pessoas que estão acima da méda: {}'.format(acimaMedia))
+print('D) A lista de pessoas que estÃ£o acima da mÃ©da: {}'.format(acimaMedia))
 
 ##
 #93
-#Aprimore o desafio 090 para que ele funcione com vários jogadores, incluindo um sistema de visualização de detalhes do aproveitamento de cada jogador.
+#Aprimore o desafio 090 para que ele funcione com vÃ¡rios jogadores, incluindo um sistema de visualizaÃ§Ã£o de detalhes do aproveitamento de cada jogador.
 
 ##
 #94
-#Faça um programa que tenha uma função chamada área(), que receba as dimensões de um terreno retangular (largura e comprimento) e mostre a área do terreno
+#FaÃ§a um programa que tenha uma funÃ§Ã£o chamada Ã¡rea(), que receba as dimensÃµes de um terreno retangular (largura e comprimento) e mostre a Ã¡rea do terreno
 
 def area(l, c):
     a = l * c
-    print('A área de um terreno {:.1f}x{:.1f} é de {:.1f}m².'.format(l, c, a))
+    print('A Ã¡rea de um terreno {:.1f}x{:.1f} Ã© de {:.1f}mÂ².'.format(l, c, a))
 
 print(' Controle de Terrenos')
 print('-'*23)
@@ -1560,7 +1551,7 @@ area(largura, comprimento)
 
 ##
 #95
-#Faça um programa que tenha uma função chamada escreva(), que receba um texto qualquer como parâmetro e mostre uma mensagem com tamanho adaptável.
+#FaÃ§a um programa que tenha uma funÃ§Ã£o chamada escreva(), que receba um texto qualquer como parÃ¢metro e mostre uma mensagem com tamanho adaptÃ¡vel.
 
 def escreva(msg):
     print('~'*len(msg)*2)
@@ -1572,13 +1563,13 @@ escreva(mensagem)
 
 ##
 #96
-#Faça um programa que tenha uma função chamada contador(), que receba três parâmetros: início, fim e passo e realize a contagem. Seu programa tem que realizar três contagens através da função criada.
-#a) de 1 até 10, de 1 em 1
-#b) de 10 até 0, de 2 em 2
+#FaÃ§a um programa que tenha uma funÃ§Ã£o chamada contador(), que receba trÃªs parÃ¢metros: inÃ­cio, fim e passo e realize a contagem. Seu programa tem que realizar trÃªs contagens atravÃ©s da funÃ§Ã£o criada.
+#a) de 1 atÃ© 10, de 1 em 1
+#b) de 10 atÃ© 0, de 2 em 2
 #c) uma contagem personalizada
 
 def contador(inicio, fim, passo):
-    print(f'\nContagem de {inicio} até {fim} de {passo} em {passo}: ')
+    print(f'\nContagem de {inicio} atÃ© {fim} de {passo} em {passo}: ')
     if inicio<fim:
         while inicio<=fim:
             print(inicio, end=' ')
@@ -1591,8 +1582,8 @@ def contador(inicio, fim, passo):
 contador(1, 10, 1)
 contador(10, 0, 2)
 
-print('\nAgora é a sua vez de personalizar a contagem!')
-i = int(input('Início: '))
+print('\nAgora Ã© a sua vez de personalizar a contagem!')
+i = int(input('InÃ­cio: '))
 f = int(input('Fim: '))
 p = int(input('Passo: '))
 
@@ -1600,7 +1591,7 @@ contador(i, f, p)
 
 ##
 #97
-#Faça um programa que tenha uma função chamada maior(), que receba vários parâmetros com valores inteiros. Seu programa tem que analisar todos os valores e dizer qual deles é maior.
+#FaÃ§a um programa que tenha uma funÃ§Ã£o chamada maior(), que receba vÃ¡rios parÃ¢metros com valores inteiros. Seu programa tem que analisar todos os valores e dizer qual deles Ã© maior.
 
 def maior(* num):
     cont = maior = 0
@@ -1620,7 +1611,7 @@ maior(1,2,4,5,7)
 
 ##
 #98
-#Faça um programa que tenha uma lista chamada números e duas funções chamadas sorteia() e somaPar(). A primeira função vai sortear 5 números e vai colocá-los dentro da lista e a segunda função vai mostrar a soma entre todos os valores Pares sorteados pela função anterior.
+#FaÃ§a um programa que tenha uma lista chamada nÃºmeros e duas funÃ§Ãµes chamadas sorteia() e somaPar(). A primeira funÃ§Ã£o vai sortear 5 nÃºmeros e vai colocÃ¡-los dentro da lista e a segunda funÃ§Ã£o vai mostrar a soma entre todos os valores Pares sorteados pela funÃ§Ã£o anterior.
 
 from random import randint
 
@@ -1646,23 +1637,23 @@ somaPar()
 
 ##
 #99
-#Crie um programa que tenha uma função chamada voto() que vai receber como parâmetro o ano de nascimento de uma pessoa, retornando um valor literal indicando se uma pessoa tem voto negado, opcional ou obrigatório nas eleições.
+#Crie um programa que tenha uma funÃ§Ã£o chamada voto() que vai receber como parÃ¢metro o ano de nascimento de uma pessoa, retornando um valor literal indicando se uma pessoa tem voto negado, opcional ou obrigatÃ³rio nas eleiÃ§Ãµes.
 
 from datetime import datetime
 
 def voto(ano):
     idade = datetime.now().year - ano
     if idade >= 18:
-        print(f'Com {idade} anos: VOTO OBRIGATÓRIO')
+        print(f'Com {idade} anos: VOTO OBRIGATÃ“RIO')
     else:
-        print(f'Com {idade} anos: NÃO VOTA')
+        print(f'Com {idade} anos: NÃƒO VOTA')
 
-a = int(input('Em que ano você nasceu? '))
+a = int(input('Em que ano vocÃª nasceu? '))
 voto(a)
 
 ##
 #100
-#Crie um programa que tenha uma função fatorial() que recebe dois parâmetros: o primeiro que indique o número a calcular e o outro chamado show, que será um valor lógico (opcional) indicando se será mostrado ou não na tela o processo de cálculo do fatorial
+#Crie um programa que tenha uma funÃ§Ã£o fatorial() que recebe dois parÃ¢metros: o primeiro que indique o nÃºmero a calcular e o outro chamado show, que serÃ¡ um valor lÃ³gico (opcional) indicando se serÃ¡ mostrado ou nÃ£o na tela o processo de cÃ¡lculo do fatorial
 
 def fatorial(num, show):
     fatorial = num
@@ -1680,13 +1671,13 @@ fatorial(5,True)
 
 ##
 #101
-#Faça um programa que tenha uma função chamada ficha(), que receba dois parâmetros opcionais: o nome de um jogador e quantos gols ele maracou. O programa deverá ser capaz de mostrar a ficha do jogador, mesmo que algum dado não tenha sido informado corretamente.
+#FaÃ§a um programa que tenha uma funÃ§Ã£o chamada ficha(), que receba dois parÃ¢metros opcionais: o nome de um jogador e quantos gols ele maracou. O programa deverÃ¡ ser capaz de mostrar a ficha do jogador, mesmo que algum dado nÃ£o tenha sido informado corretamente.
 
 def ficha(jog='<desconhecido>', gol=0):
     print(f'O jogador {jog} fez {gol} gol(s) no campeonato.')
 
 n = str(input('Nome do jogador: '))
-g = str(input('Número de gols: '))
+g = str(input('NÃºmero de gols: '))
 if g.isnumeric():
     g = int(g)
 else:
@@ -1698,7 +1689,7 @@ else:
 
 ##
 #102
-#Crie um programa que tenha a função leiaInt(), que vai funcionar de forma semelhante à função input() do Python, só fazendo a validação para aceitar apenas um valor numérico.
+#Crie um programa que tenha a funÃ§Ã£o leiaInt(), que vai funcionar de forma semelhante Ã  funÃ§Ã£o input() do Python, sÃ³ fazendo a validaÃ§Ã£o para aceitar apenas um valor numÃ©rico.
 
 def leiaInt(msg):
     ok = False
@@ -1709,29 +1700,29 @@ def leiaInt(msg):
             valor = int(n)
             ok = True
         else:
-            print('\033[0;31mERRO! Digite um número inteiro válido.\033[m')
+            print('\033[0;31mERRO! Digite um nÃºmero inteiro vÃ¡lido.\033[m')
         if ok:
             break
     return valor
 
-n = leiaInt('Digite um número: ')
-print(f'Você acabou de digitar o número {n}')
+n = leiaInt('Digite um nÃºmero: ')
+print(f'VocÃª acabou de digitar o nÃºmero {n}')
 
 ##
 #103
-#Faça um programa que tenha uma função notas() que pode receber várias notas de alunos e vai retornar um dicionário com as seguintes informações:
+#FaÃ§a um programa que tenha uma funÃ§Ã£o notas() que pode receber vÃ¡rias notas de alunos e vai retornar um dicionÃ¡rio com as seguintes informaÃ§Ãµes:
 #- quantidade de nota
 #- maior nota
 #- menor nota
-#- média da turma
-#- situaçã (opcional)
+#- mÃ©dia da turma
+#- situaÃ§Ã£ (opcional)
 
 def notas(*n, sit=False):
     """
-    -> Função para analisar notas e situaçãoes de vários alunos.
-    :param n: uma ou mais notas dos alunos (aceita várias)
-    :param sit: valor opcional, indicando se deve ou não adicionar a situação
-    :return: dicionário com várias informações sobre a situação da turma
+    -> FunÃ§Ã£o para analisar notas e situaÃ§Ã£oes de vÃ¡rios alunos.
+    :param n: uma ou mais notas dos alunos (aceita vÃ¡rias)
+    :param sit: valor opcional, indicando se deve ou nÃ£o adicionar a situaÃ§Ã£o
+    :return: dicionÃ¡rio com vÃ¡rias informaÃ§Ãµes sobre a situaÃ§Ã£o da turma
     """
     r = dict()
     r['total'] = len(n)
@@ -1753,7 +1744,7 @@ help(notas)
 
 ##
 #104
-#Faça um mini sistema que utilize a interatividade Help do Python. O usuário vai digitar o comando e o manual vai aparecer. Quando o usuário digitar a palavra 'FIM', o programa se encerrará.
+#FaÃ§a um mini sistema que utilize a interatividade Help do Python. O usuÃ¡rio vai digitar o comando e o manual vai aparecer. Quando o usuÃ¡rio digitar a palavra 'FIM', o programa se encerrarÃ¡.
 
 d = ('\033[m'           #0 - sem cores
     ' \033[0;30;41m'    #1 - vermelho
@@ -1776,12 +1767,12 @@ def titulo(msg, cor=0):
 comando = ''
 while True:
     titulo('SISTEMA DE AJUDA PyHELP', 2)
-    comando = str(input('Função ou Biblioteca > '))
+    comando = str(input('FunÃ§Ã£o ou Biblioteca > '))
     if comando.upper() == 'FIM':
         break
     else:
         ajuda(comando)
-titulo('Até Logo!',1)
+titulo('AtÃ© Logo!',1)
 
 ---
 Desafios: #61, #69, #78, #93
