@@ -312,3 +312,8 @@ Desafios: 547
 
 https://www.practicepython.org/
 https://www.w3resource.com/python-exercises/
+
+
+--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
+
+Como transformar CEP em endereço, latitude e longitude usando Python
