@@ -1,31 +1,3 @@
-#1.
-#Crie um script Python que leia o nome de uma pessoa e mostre uma mensagem de boas-vindas de acordo com o valor digitado;
-
-nome = input('What is your fuckin Name?? ')
-print('Hello World! Hello {} you Mothafuckar!!'.format(nome))
-
-##
-#2
-#Crie um script Python que leia o dia, o mes e o ano de nascimento de uma pessoa e mostre uma mensagem com a data formatada.
-
-print('Data de Nascimento')
-
-dia = input('Dia: ')
-mes = input('Mês: ')
-ano = input('Ano: ')
-
-print('{}/{}/{}'.format(dia, mes, ano))
-
-##
-#4
-#Faça um programa que leia algo pelo teclado e mostre na tela o seu tipo primitivo e todas as informações possíveis sobre ele;
-
-algo = input('Digite algo: ')
-print('Tipo primitivo: {}'.format(type(algo)))
-print('Tipo numérico: {}'.format(algo.isnumeric()))
-print('Tipo alfanumérico: {}'.format(algo.isalnum()))
-
-##
 #5
 #Faça um programa que leia um número inteiro e mostre na tela o seu sucessor e seu antecessor
 
