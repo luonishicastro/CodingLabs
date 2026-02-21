@@ -1,39 +1,3 @@
-#5
-#Faça um programa que leia um número inteiro e mostre na tela o seu sucessor e seu antecessor
-
-num = int(input('Digite um número: '))
-print('O Antecessor de {} é {}'.format(num, num-1))
-print('O Sucessor de {} é {}'.format(num, num+1))
-
-##
-#6
-#Crie um algoritmo que leia um número e mostre o seu dobro, triplo e raíz quadrada
-
-import math
-
-num = int(input('Digite um número: '))
-print('A raiz de {} é {:.2f}'.format(num, math.sqrt(num)))
-print('O dobro de {} é {}'.format(num, 2*num))
-print('O triplo de {} é {}'.format(num, 3*num))
-
-##
-#7
-#Desenvolva um programa que leia as duas notas de um aluno, calcule e mostre a sua média
-
-nota1 = int(input('Digite a primeira nota: '))
-nota2 = int(input('Digite a primeira nota: '))
-soma= nota1 + nota2
-print('A média entre as notas {:.2f} e {:.2f} é de {:.2f}'.format(nota1, nota2, soma/2))
-
-##
-#8
-#Escreva um programa que leia um valor em metros e o exiba convertido em centímetros e milímetros
-
-valor = int(input('Digite a medida:'))
-print('{}cm'.format(valor*100))
-print('{}mm'.format(valor*1000))
-
-##
 #9
 #Faça um programa que leia um número inteiro qualquer e mostre na tela a sua tabuada
 
