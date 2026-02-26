@@ -1,37 +1,4 @@
 ##
-#26
-#Faça um programa que leia o nome completo de uma pessoa, mostrando em seguida o primeiro e o último nome separadamente.
-
-nome = input('Digite seu nome completo: ').split()
-print('O primeiro nome é {}'.format(nome[0]))
-print('O último nome é {}'.format(nome[len(nome)-1]))
-
-##
-#27
-#Escreva um programa que faça o computador "pensar" em um número inteiro entre 0 e 5 e peça para o usuário tentar descobrir qual foi o número escolhido pelo computador. O programa deverá escrever na tela se o usuário venceu ou perdeu.
-
-import random
-
-num = random.randint(0,5)
-palpite = int(input('De um palpite (entre 0 e 5): '))
-if palpite != num:
-    while palpite != num:
-        palpite = int(input('Você errou o palpite. Tente denovo! '))
-    print('Você acertou o palpite {}'.format(palpite))
-else:
-    print('Você acertou o palpite {}'.format(palpite))
-
-##
-#28
-#Escreva um programa que leia a velocidade de um carro. Se ele ultrapassar 80Km/h, mostre uma mensagem dizendo que ele foi multado. A multa vai custar R$7,00 por cada Km acima do limite.
-
-velocidade = float(input('Qual é a velocidade do carro? '))
-if velocidade > 80:
-    print('Você foi multado! Preço de R${:.2f}'.format((velocidade-80)*7))
-else:
-    print('VRUMMMMMM')
-
-##
 #29
 #Desenvolva um programa que pergunte a distância de uma viagem em Km. Calcule o preço da passagem, cobrando R$0,50 por Km para viagens de até 200Km e R$0,45 para viagens mais longas
 
