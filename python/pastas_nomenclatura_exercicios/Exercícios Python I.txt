@@ -1,16 +1,4 @@
 ##
-#25
-#Faça um programa que leia uma frases pelo teclado e mostre:
-#(1) Quantas vezes aparece a palavra "A";
-#(2) Em que posição ela aparece a primeira vez;
-#(3) Em que posição ela aparece a última vez.
-
-frase = input('Digite uma frase qualquer: ').upper()
-print('A palavra "A" aparece {} vezes.'.format(frase.count('A')))
-print('A palavra "A" aparece pela primeira vez na posição {}'.format(frase.find('A')+1))
-print('A palavra "A" aparece pela ultima vez na posição {}'.format(frase.rfind('A')+1))
-
-##
 #26
 #Faça um programa que leia o nome completo de uma pessoa, mostrando em seguida o primeiro e o último nome separadamente.
 
