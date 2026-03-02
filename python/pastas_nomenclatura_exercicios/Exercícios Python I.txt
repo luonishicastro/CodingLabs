@@ -1,29 +1,4 @@
 ##
-#42
-#Elabore um programa que calcule o valor a ser pago por um produto, considerando o seu preço normal e condição de pagamento:
-#à vista dinheiro/cheque: 10% de desconto
-#à vista no cartão: 5% de desconto
-#em até 2x no cartão: preço normal
-#3x ou mais no cartão: 20% de juros
-
-precoInicial = float(input('Digite o preço do produto: R$'))
-cond = int(input('Opções: \n[1] à vista dinheiro/cheque\n'
-                        '[2] à vista no cartão\n'
-                            '[3] em até 2x no cartão\n'
-                                '[4] 3x ou mais no cartão\n'
-                                    'Condição: '))
-if cond == 1:
-    precoFinal = precoInicial-precoInicial*0.1
-elif cond == 2:
-    precoFinal = precoInicial-precoInicial*0.05
-elif cond == 4:
-    precoFinal = precoInicial + precoInicial*0.2
-else:
-    precoFinal = precoInicial
-
-print('Condição de Pagamento: {}\nPreço do Produto: R${:.2f} \nPreço Final: R${:.2f}'.format(cond, precoInicial, precoFinal))
-
-##
 #43
 #Crie um programa que faça o computador jogar Jokenpô com você
 
